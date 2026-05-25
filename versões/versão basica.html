@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crepom</title>
+    <meta name="description" content="Conteúdo estratégico e produção criativa com Inteligência Artificial. A criatividade precisa encontrar escala.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon1.ico">
+
+    <style>
+        /* ============================================================
+           FONTE DA MARCA — coloque o arquivo providence-sans.otf
+           na mesma pasta que o index.html
+           ============================================================ */
+        @font-face {
+            font-family: "Providence Sans";
+            src: url("providence-sans.otf") format("opentype");
+        }
+
+        /* ============================================================
+           CORES DA MARCA CREPOM
+           Para mudar as cores, edite os valores abaixo.
+           ============================================================ */
+        :root {
+            --laranja:   #F0A030;
+            --rosa:      #D94080;
+            --roxo:      #7030A0;
+            --azul:      #1A3A6C;
+            --fundo:     #07070F;
+            --texto:     #FFFFFF;
+            --texto-sec: #9999BB;
+            --card-bg:   #0F0F1C;
+            --borda:     rgba(255,255,255,0.07);
+            --gradiente: linear-gradient(135deg, #F0A030, #D94080, #7030A0, #1A3A6C);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+           NAVEGAÇÃO
+           ============================================================ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.4rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(7, 7, 15, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .logo-nav {
+            font-size: 1.80rem;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            font-family: "Providence Sans", sans-serif;
+            color: white;
+        }
+
+        .nav-btn {
+            background: var(--gradiente);
+            color: #fff;
+            padding: 0.6rem 1.6rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.02em;
+        }
+        .nav-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+        /* ============================================================
+           HERO — VÍDEO DE FUNDO
+           ============================================================ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* ── Coloque seu vídeo em: videos/hero.mp4 ── */
+        #hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.45;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(7,7,15,0.25) 0%,
+                rgba(7,7,15,0.05) 45%,
+                rgba(7,7,15,0.85) 100%
+            );
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 30%, rgba(240,160,48,0.12), transparent),
+                radial-gradient(ellipse 50% 50% at 20% 70%, rgba(112,48,160,0.12), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 100px;
+            padding: 0.4rem 1.1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-titulo {
+            font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--texto-sec);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gradiente);
+            color: #fff;
+            padding: 1rem 2.8rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 45px rgba(217,64,128,0.45);
+        }
+        .hero-cta:hover {
+            opacity: 0.88;
+            transform: translateY(-3px);
+            box-shadow: 0 0 70px rgba(217,64,128,0.65);
+        }
+
+        /* ============================================================
+           SEÇÃO SOBRE
+           ============================================================ */
+        .sobre {
+            padding: 7rem 4rem;
+            text-align: center;
+        }
+
+        /* Labels pequenos (laranja/âmbar) */
+        .secao-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--laranja);
+            margin-bottom: 1.4rem;
+        }
+
+        .sobre-titulo {
+            font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            max-width: 780px;
+            margin: 0 auto 1.4rem;
+        }
+
+        .divisor {
+            width: 56px;
+            height: 3px;
+            background: var(--gradiente);
+            border-radius: 100px;
+            margin: 2rem auto;
+        }
+
+        .sobre-texto {
+            font-size: 1.05rem;
+            color: var(--texto-sec);
+            line-height: 1.85;
+            max-width: 660px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           CATÁLOGO DE VÍDEOS
+           ============================================================ */
+        .catalogo {
+            padding: 1rem 4rem 7rem;
+        }
+
+        .catalogo-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .catalogo-titulo {
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        /* Grid de vídeos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--borda);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(240,160,48,0.35);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(240,160,48,0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #0b0b18;
+        }
+
+        /* Thumbnail estática */
+        .video-thumb {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.35s ease;
+            z-index: 2;
+            transform: scale(1);
+        }
+
+        /* Zoom suave na thumbnail no hover */
+        .video-card:hover .video-thumb {
+            transform: scale(1.07);
+        }
+
+        /* Overlay escuro que aparece no hover */
+        .video-hover-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: rgba(0,0,0,0.35);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-card:hover .video-hover-overlay {
+            opacity: 1;
+        }
+
+        /* Ícone de play */
+        .play-icon {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .play-icon svg {
+            width: 56px;
+            height: 56px;
+            filter: drop-shadow(0 2px 14px rgba(0,0,0,0.8));
+            transition: transform 0.3s ease;
+        }
+
+        /* Play icon cresce no hover */
+        .video-card:hover .play-icon svg {
+            transform: scale(1.15);
+        }
+
+        /* Card do X (Twitter) — fundo especial */
+        .video-card.x-card .video-wrapper {
+            background: linear-gradient(135deg, #0f0f1a 60%, #1a1a2e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .x-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            z-index: 2;
+        }
+
+        .x-placeholder svg {
+            width: 44px;
+            height: 44px;
+            opacity: 0.85;
+        }
+
+        .x-placeholder span {
+            font-size: 0.78rem;
+            color: var(--texto-sec);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .video-info {
+            padding: 1rem 1.25rem 1.3rem;
+        }
+
+        .video-nome {
+            font-size: 0.93rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.3rem;
+        }
+
+        .video-desc {
+            font-size: 0.8rem;
+            color: var(--texto-sec);
+            line-height: 1.55;
+        }
+
+        /* ============================================================
+           SEÇÃO CONTATO
+           ============================================================ */
+        .contato {
+            position: relative;
+            padding: 8rem 4rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .contato::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% 100%, rgba(112,48,160,0.15), transparent),
+                radial-gradient(ellipse 50% 40% at 10% 50%, rgba(240,160,48,0.08), transparent);
+            pointer-events: none;
+        }
+
+        .contato-inner {
+            position: relative;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .contato-titulo {
+            font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+
+        .contato-sub {
+            font-size: 1.05rem;
+            color: var(--texto-sec);
+            line-height: 1.75;
+            margin-bottom: 2.8rem;
+        }
+
+        /* ============================================================
+           BOTÕES DE CONTATO
+           Para mudar o WhatsApp: substitua o número em href abaixo.
+           Para mudar o e-mail: substitua o endereço em href abaixo.
+           ============================================================ */
+        .contato-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradiente);
+            color: #fff;
+            padding: 1rem 2.8rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 50px rgba(217,64,128,0.5);
+        }
+        .btn-primary:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+            box-shadow: 0 0 70px rgba(217,64,128,0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--texto);
+            padding: 1rem 2.4rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid var(--borda);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: rgba(240,160,48,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           RODAPÉ
+           ============================================================ */
+        footer {
+            border-top: 1px solid var(--borda);
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--texto-sec);
+            font-size: 0.82rem;
+        }
+
+        .footer-logo {
+            font-family: "Providence Sans", sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        /* ============================================================
+           RESPONSIVO — MOBILE
+           ============================================================ */
+        @media (max-width: 768px) {
+            nav { padding: 1.1rem 1.5rem; }
+            .sobre, .catalogo, .contato { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .video-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║  NAVEGAÇÃO                            ║
+         ╚═══════════════════════════════════════╝ -->
+    <nav>
+        <span class="logo-nav">CREPOM</span>
+        <a href="#contato" class="nav-btn">Solicitar Projeto</a>
+    </nav>
+
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║  HERO — VÍDEO DE FUNDO               ║
+         ║  Coloque seu vídeo em:                ║
+         ║  videos/hero.mp4                      ║
+         ╚═══════════════════════════════════════╝ -->
+    <section class="hero">
+        <video id="hero-video" autoplay muted loop playsinline>
+            <source src="videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+            <span class="hero-badge">✦ IA dirigida pela criatividade humana </span>
+            <h1 class="hero-titulo">
+                Vídeos feitos com IA.<br>
+                Estratégia humana.<br>
+            </h1>
+            <p class="hero-sub">
+                Para marcas que não querem ser esquecidas.<br>
+                Unimos storytelling e IA para criar vídeos inesquecíveis para sua marca.
+            </p>
+            <a href="#contato" class="hero-cta">Solicitar Projeto →</a>
+        </div>
+    </section>
+
+
+    <!-- ╔═══════════════════════════════════════╗
+         ║  SOBRE A CREPOM                       ║
+         ╚═══════════════════════════════════════╝ -->
+    <section class="sobre">
+        <span class="secao-label">Quem somos</span>
+        <h2 class="sobre-titulo">
+            Somos um estúdio criativo liderado por uma arquiteta que entende de produto, narrativa e IA.
+        </h2>
+        <div class="divisor"></div>
+        <p class="sobre-texto">
+            (E que já construiu estratégias que geraram milhões de views no orgânico)
+        </p>
+    </section>
+
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗
+         ║  PORTFÓLIO DE VÍDEOS                                     ║
+         ║                                                           ║
+         ║  Para ADICIONAR um vídeo do YouTube:                     ║
+         ║  - Copie um bloco <a class="video-card"> abaixo          ║
+         ║  - Preencha data-youtube-id com o ID do vídeo            ║
+         ║  - Preencha href com o link completo                     ║
+         ║  - A thumbnail é gerada automaticamente                   ║
+         ║                                                           ║
+         ║  Para ADICIONAR vídeo do X/Twitter:                      ║
+         ║  - Use o bloco com class="video-card x-card"             ║
+         ║  - Preencha href com o link do post                      ║
+         ║                                                           ║
+         ║  Para REMOVER: apague o bloco <a class="video-card">     ║
+         ╚═══════════════════════════════════════════════════════════╝ -->
+    <section class="catalogo" id="catalogo">
+        <div class="catalogo-header">
+            <span class="secao-label">Portfólio</span>
+        </div>
+
+        <div class="video-grid">
+
+            <!-- ── VÍDEO 1 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://youtu.be/luKI78u3PLU"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
+                         alt="Vídeo 1">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">IA para Você dar Conta do Seu Trabalho</p>
+                    <p class="video-desc">Produção criativa com Inteligência Artificial.</p>
+                </div>
+            </a>
+
+            <!-- ── VÍDEO 2 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://youtu.be/xRk4rb_wAjU"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/xRk4rb_wAjU/maxresdefault.jpg"
+                         alt="Vídeo 2">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">WhatsApp vs Você</p>
+                    <p class="video-desc">Organize e automatize o WhatsApp da sua empresa com jestor.</p>
+                </div>
+            </a>
+
+            <!-- ── VÍDEO 3 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=tLa9z42Nw8A"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/tLa9z42Nw8A/maxresdefault.jpg"
+                         alt="Vídeo 3">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">Escolha o COO que você quer ser.</p>
+                    <p class="video-desc">O mercado mudou. O COO de hoje não gerencia apenas pessoas e processos; ele gerencia Sistemas.</p>
+                </div>
+            </a>
+
+            <!-- ── VÍDEO 4 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=lXqExscXvyc"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/lXqExscXvyc/maxresdefault.jpg"
+                         alt="Vídeo 4">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">O seu ERP não é o Problema.</p>
+                    <p class="video-desc">Produção criativa com Inteligência Artificial para o Jestor.</p>
+                </div>
+            </a>
+            <!-- ── VÍDEO 5 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://youtu.be/kK9ppOWhnh4"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/kK9ppOWhnh4/maxresdefault.jpg"
+                         alt="Vídeo 5">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">E se a IA existisse no jardim do Édem?</p>
+                    <p class="video-desc">Produção criativa com Inteligência Artificial.</p>
+                </div>
+            </a>
+            <!-- ── VÍDEO 6 — YouTube ──────────────────────── -->
+            <a class="video-card"
+               href="https://youtu.be/7g5Wuijom_o"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <img class="video-thumb"
+                         src="https://img.youtube.com/vi/7g5Wuijom_o/maxresdefault.jpg"
+                         alt="Vídeo 6">
+                    <div class="video-hover-overlay"></div>
+                    <div class="play-icon">
+                        <svg viewBox="0 0 52 52" fill="none">
+                            <circle cx="26" cy="26" r="26" fill="rgba(255,255,255,0.18)"/>
+                            <polygon points="21,15 41,26 21,37" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">Seja visto.</p>
+                    <p class="video-desc">Campanha conceitual para a Patagonia em 2 dias usando IA.</p>
+                </div>
+            </a>
+            <!-- 
+            < !-- ── VÍDEO 5 — X / Twitter ──────────────────── -- >
+            <a class="video-card x-card"
+               href="https://x.com/AlineValer25974/status/2047417054693589428"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <div class="x-placeholder">
+                        < !-- Ícone do X -- >
+                        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.25 2.25h6.312l4.256 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span>Ver no X</span>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">Vídeo de IA — X</p>
+                    <p class="video-desc">Produção criativa com Inteligência Artificial.</p>
+                </div>
+            </a>
+            -->
+            <!--
+            < !-- ── VÍDEO 6 — X / Twitter ──────────────────── -- >
+            <a class="video-card x-card"
+               href="https://x.com/AlineValer25974/status/2046196486665380201"
+               target="_blank" rel="noopener">
+                <div class="video-wrapper">
+                    <div class="x-placeholder">
+                        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.25 2.25h6.312l4.256 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span>Ver no X</span>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <p class="video-nome">Vídeo de IA — X</p>
+                    <p class="video-desc">Produção criativa com Inteligência Artificial.</p>
+                </div>
+            </a>
+            -->
+            
+            <!-- ── Copie e cole um bloco acima para adicionar mais vídeos ── -->
+
+        </div>
+    </section>
+
+
+    <!-- ╔═══════════════════════════════════════════════════════════╗
+         ║  CONTATO                                                  ║
+         ║  Substitua o número do WhatsApp e o e-mail abaixo.        ║
+         ╚═══════════════════════════════════════════════════════════╝ -->
+    <section class="contato" id="contato">
+        <div class="contato-inner">
+            <span class="secao-label">Vamos conversar</span>
+            <h2 class="contato-titulo">
+                Pronto para fazer sua marca ser lembrada?
+            </h2>
+            <p class="contato-sub">
+                Conte o que você precisa. A gente transforma em vídeo.
+            </p>
+            <div class="contato-btns">
+                <!-- Substitua 554195527389 pelo número real com DDD e DDI -->
+                <a href="https://wa.me/554195527389?text=Olá!%20Quero%20um%20orçamento%20de%20vídeo%20de%20IA." class="btn-primary" target="_blank" rel="noopener">
+                    Falar no WhatsApp →
+                </a>
+                <a href="mailto:crepomcriativo@gmail.com" class="btn-secondary">
+                    Enviar e-mail
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+        <span class="footer-logo">CREPOM</span>
+        <span>© 2026 Crepom. Todos os direitos reservados.</span>
+    </footer>
+
+
+    <!-- Hover tratado via CSS puro — nenhum JS necessário para os cards -->
+
+</body>
+</html>

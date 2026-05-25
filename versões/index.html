@@ -5,49 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CREPOM — Cinematic AI videos</title>
 <meta name="description" content="Cinematic AI videos powered by human-driven narratives.">
-
-<!-- ╔══════════════════════════════════════════════════════════════════╗
-     ║  COMO EDITAR ESTE SITE / HOW TO EDIT THIS SITE                  ║
-     ║                                                                  ║
-     ║  ► PRA TROCAR OS TEXTOS / TO CHANGE TEXTS:                       ║
-     ║    Procure (Ctrl+F) o texto que quer trocar e digite o novo.    ║
-     ║    Find the text you want to change and type the new one.        ║
-     ║                                                                  ║
-     ║  ► PRA ADICIONAR UM VÍDEO / TO ADD A VIDEO:                      ║
-     ║    1) Vá até a seção "VIDEO FEED" abaixo                         ║
-     ║    2) Copie um bloco <div class="feed-row">...</div>             ║
-     ║    3) Cole onde quiser                                           ║
-     ║    4) Troque:                                                    ║
-     ║       - href="..."         → link do YouTube                     ║
-     ║       - src="..."          → URL da thumbnail                    ║
-     ║       - data-brand="..."   → nome da marca                       ║
-     ║       - data-title="..."   → título do vídeo                     ║
-     ║                                                                  ║
-     ║  ► TIPOS DE LINHA / ROW TYPES:                                   ║
-     ║    <div class="feed-row full">   = 1 vídeo grande (full width)   ║
-     ║    <div class="feed-row split">  = 2 vídeos lado a lado          ║
-     ║                                                                  ║
-     ║  ► THUMBNAIL DO YOUTUBE / YOUTUBE THUMBNAIL:                     ║
-     ║    Use:  https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg║
-     ║    Exemplo:  ID = "luKI78u3PLU"                                  ║
-     ║              URL = https://img.youtube.com/vi/luKI78u3PLU/...    ║
-     ║                                                                  ║
-     ║  ► VÍDEO EM LOOP (efeito "vivo") / LOOPING CLIP (alive effect):  ║
-     ║    Em vez de imagem estática, mostre um clipe curto em loop      ║
-     ║    (tipo Stink Films). Adicione o atributo no card:              ║
-     ║       data-loop="videos/seuclip.mp4"                             ║
-     ║    Recomendado: 10-30s, sem áudio, <5MB, formato MP4.            ║
-     ║    NÃO use GIF (GIF é 10x mais pesado que MP4).                  ║
-     ║                                                                  ║
-     ║  ► O LAYOUT AJUSTA SOZINHO:                                      ║
-     ║    Pode adicionar quantos vídeos quiser. As linhas se ajustam.   ║
-     ║    Alterne "full" e "split" para criar ritmo na página.          ║
-     ║                                                                  ║
-     ║  ► CONTATO / CONTACT:                                            ║
-     ║    Trocar WhatsApp: procure "554195527389"                       ║
-     ║    Trocar email:    procure "crepomcriativo@gmail.com"           ║
-     ╚══════════════════════════════════════════════════════════════════╝ -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -58,15 +15,6 @@
    3 horizontal pages: PORTFOLIO / ABOUT / CONTACT
    Drag, arrows, or top-nav clicks to swipe between pages.
    ============================================================ */
-
-/* ── FONTE DA MARCA (Providence Sans) ──
-   O arquivo providence-sans.otf precisa estar na mesma pasta
-   que o index.html para a fonte carregar.                       */
-@font-face {
-    font-family: "Providence Sans";
-    src: url("providence-sans.otf") format("opentype");
-    font-display: swap;
-}
 
 :root {
     --bg:        #000000;
@@ -113,10 +61,9 @@ nav.top {
 nav.top > * { pointer-events: auto; }
 
 .logo {
-    font-family: "Providence Sans", 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 0.22em;
+    font-size: 16px;
+    letter-spacing: 0.32em;
     color: #fff;
     cursor: pointer;
     user-select: none;
@@ -157,10 +104,7 @@ nav.top > * { pointer-events: auto; }
     display: flex;
     width: 300vw;                 /* 3 pages */
     height: 100%;
-    /* ── VELOCIDADE DA PASSAGEM ENTRE PÁGINAS ──
-       Aumente o tempo para passar mais devagar (ex: 1.5s, 2s).
-       Diminua para passar mais rápido (ex: 0.5s). */
-    transition: transform 1.2s var(--ease);
+    transition: transform 0.7s var(--ease);
     will-change: transform;
 }
 
@@ -427,7 +371,7 @@ nav.top > * { pointer-events: auto; }
 }
 
 /* ============================================================
-   PAGE 3 — CONTACT  (white background, dark text)
+   PAGE 3 — CONTACT
    ============================================================ */
 .contact {
     min-height: 100vh;
@@ -435,8 +379,7 @@ nav.top > * { pointer-events: auto; }
     align-items: center;
     justify-content: center;
     padding: 120px 8vw;
-    background: #ffffff;
-    color: #000000;
+    background: #000;
     text-align: center;
 }
 
@@ -447,7 +390,7 @@ nav.top > * { pointer-events: auto; }
 .contact-label {
     font-size: 12px;
     letter-spacing: 0.32em;
-    color: rgba(0,0,0,0.45);
+    color: var(--text-faint);
     text-transform: uppercase;
     margin-bottom: 32px;
 }
@@ -458,12 +401,12 @@ nav.top > * { pointer-events: auto; }
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin-bottom: 28px;
-    color: #000;
+    color: #fff;
 }
 
 .contact-sub {
     font-size: clamp(15px, 1.2vw, 18px);
-    color: rgba(0,0,0,0.6);
+    color: var(--text-dim);
     font-weight: 300;
     line-height: 1.6;
     margin-bottom: 56px;
@@ -481,45 +424,27 @@ nav.top > * { pointer-events: auto; }
     align-items: center;
     gap: 10px;
     padding: 16px 32px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.25);
     border-radius: 100px;
     font-size: 15px;
     font-weight: 400;
-    color: #000;
+    color: #fff;
     transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
     cursor: pointer;
     min-width: 280px;
     justify-content: center;
-    text-decoration: none;
 }
 .contact-btn:hover {
-    border-color: #000;
-    background: rgba(0,0,0,0.04);
+    border-color: #fff;
+    background: rgba(255,255,255,0.06);
 }
 .contact-btn.primary {
-    background: #000;
-    color: #fff;
-    border-color: #000;
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
 .contact-btn.primary:hover {
-    background: rgba(0,0,0,0.85);
-}
-
-/* When contact page is active, make nav links readable on white */
-body.page-contact nav.top .logo,
-body.page-contact nav.top .nav-link {
-    color: rgba(0,0,0,0.55);
-}
-body.page-contact nav.top .nav-link:hover,
-body.page-contact nav.top .nav-link.active,
-body.page-contact nav.top .logo {
-    color: #000;
-}
-body.page-contact .page-indicator .dot {
-    background: rgba(0,0,0,0.25);
-}
-body.page-contact .page-indicator .dot.active {
-    background: #000;
+    background: rgba(255,255,255,0.85);
 }
 
 /* ============================================================
@@ -644,15 +569,12 @@ body.page-contact .page-indicator .dot.active {
         <section class="page" id="page-portfolio">
             <div class="feed">
 
-                <!-- ──────────────────────────────────────────────────────────
-                     VIDEO FEED — adicione/remova/reordene linhas aqui.
-                     Cada <div class="feed-row full | split"> é uma linha.
-                     Cada <a class="card"> é um vídeo.
-                     ────────────────────────────────────────────────────────── -->
-
-                <!-- HERO CARD (full bleed, not a link — just the headline) -->
+                <!-- Hero card (full bleed) -->
                 <div class="feed-row full">
-                    <div class="card hero">
+                    <div class="card hero"
+                         data-youtube="luKI78u3PLU"
+                         data-brand=""
+                         data-title="">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
                              alt="">
@@ -663,11 +585,12 @@ body.page-contact .page-indicator .dot.active {
                     </div>
                 </div>
 
-                <!-- ROW: Jestor + Kiip -->
+                <!-- Split row 1: Jestor + Kiip -->
                 <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/luKI78u3PLU"
-                       target="_blank" rel="noopener">
+                    <div class="card"
+                         data-youtube="luKI78u3PLU"
+                         data-brand="Jestor"
+                         data-title="Introducing Jester: AI for Work">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
                              alt="Jestor — Introducing Jester">
@@ -676,10 +599,11 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Jestor</div>
                             <div class="card-title">Introducing Jester: AI for Work</div>
                         </div>
-                    </a>
-                    <a class="card"
-                       href="#"
-                       target="_blank" rel="noopener">
+                    </div>
+                    <div class="card"
+                         data-youtube=""
+                         data-brand="Kiip"
+                         data-title="Sua próxima versão já está do outro lado">
                         <img class="thumb"
                              src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1600&q=80"
                              alt="Kiip — Sua próxima versão">
@@ -688,14 +612,15 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Kiip</div>
                             <div class="card-title">Sua próxima versão já está do outro lado</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
-                <!-- ROW: Grandma (full) -->
+                <!-- Full row: Grandma -->
                 <div class="feed-row full">
-                    <a class="card"
-                       href="#"
-                       target="_blank" rel="noopener">
+                    <div class="card"
+                         data-youtube=""
+                         data-brand=""
+                         data-title="Do you know what your Grandma is doing right now?">
                         <img class="thumb"
                              src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=2400&q=80"
                              alt="Do you know what your Grandma is doing right now?">
@@ -703,14 +628,15 @@ body.page-contact .page-indicator .dot.active {
                         <div class="card-caption">
                             <div class="card-title">Do you know what your Grandma is doing right now?</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
-                <!-- ROW: Jestor ERP + Garden of Eden -->
+                <!-- Split row 2: Jestor ERP + Garden of Eden -->
                 <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/lXqExscXvyc"
-                       target="_blank" rel="noopener">
+                    <div class="card"
+                         data-youtube="lXqExscXvyc"
+                         data-brand="Jestor"
+                         data-title="Your ERP is NOT the problem.">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/lXqExscXvyc/maxresdefault.jpg"
                              alt="Jestor — Your ERP is NOT the problem">
@@ -719,10 +645,11 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Jestor</div>
                             <div class="card-title">Your ERP is NOT the problem.</div>
                         </div>
-                    </a>
-                    <a class="card"
-                       href="https://youtu.be/kK9ppOWhnh4"
-                       target="_blank" rel="noopener">
+                    </div>
+                    <div class="card"
+                         data-youtube="kK9ppOWhnh4"
+                         data-brand=""
+                         data-title="What if there was AI in the Garden of Eden?">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/kK9ppOWhnh4/maxresdefault.jpg"
                              alt="What if there was AI in the Garden of Eden?">
@@ -730,14 +657,15 @@ body.page-contact .page-indicator .dot.active {
                         <div class="card-caption">
                             <div class="card-title">What if there was AI in the Garden of Eden?</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
-                <!-- ROW: WhatsApp + Patagonia -->
+                <!-- Extras from old site (so you can preview the feed continuing infinitely) -->
                 <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/xRk4rb_wAjU"
-                       target="_blank" rel="noopener">
+                    <div class="card"
+                         data-youtube="xRk4rb_wAjU"
+                         data-brand="Jestor"
+                         data-title="WhatsApp vs You">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/xRk4rb_wAjU/maxresdefault.jpg"
                              alt="Jestor — WhatsApp vs You">
@@ -746,10 +674,11 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Jestor</div>
                             <div class="card-title">WhatsApp vs You</div>
                         </div>
-                    </a>
-                    <a class="card"
-                       href="https://youtu.be/7g5Wuijom_o"
-                       target="_blank" rel="noopener">
+                    </div>
+                    <div class="card"
+                         data-youtube="7g5Wuijom_o"
+                         data-brand="Patagonia"
+                         data-title="Be seen.">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/7g5Wuijom_o/maxresdefault.jpg"
                              alt="Patagonia — Be seen">
@@ -758,14 +687,14 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Patagonia</div>
                             <div class="card-title">Be seen.</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
-                <!-- ROW: Choose the COO (full) -->
                 <div class="feed-row full">
-                    <a class="card"
-                       href="https://youtu.be/tLa9z42Nw8A"
-                       target="_blank" rel="noopener">
+                    <div class="card"
+                         data-youtube="tLa9z42Nw8A"
+                         data-brand="Jestor"
+                         data-title="Choose the COO you want to be.">
                         <img class="thumb"
                              src="https://img.youtube.com/vi/tLa9z42Nw8A/maxresdefault.jpg"
                              alt="Jestor — Choose the COO">
@@ -774,11 +703,8 @@ body.page-contact .page-indicator .dot.active {
                             <div class="card-brand">Jestor</div>
                             <div class="card-title">Choose the COO you want to be.</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-
-                <!-- ▼ COPIE UM BLOCO ACIMA E COLE AQUI PARA ADICIONAR MAIS VÍDEOS ▼ -->
-                <!-- ▼ COPY ANY BLOCK ABOVE AND PASTE HERE TO ADD MORE VIDEOS ▼ -->
 
             </div>
         </section>
@@ -855,6 +781,14 @@ body.page-contact .page-indicator .dot.active {
     <div class="dot" data-goto="2"></div>
 </div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+        <iframe id="lightbox-iframe" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
 <script>
 /* ============================================================
    PAGE SWIPER — drag, arrow keys, nav clicks
@@ -881,8 +815,6 @@ body.page-contact .page-indicator .dot.active {
         // Sync UI
         dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
         links.forEach((l, idx) => l.classList.toggle('active', idx === current));
-        // Add a body class so we can style the nav differently on the white contact page
-        document.body.classList.toggle('page-contact', current === 2);
         if (!animate) requestAnimationFrame(() => track.style.transition = '');
     }
 
@@ -896,6 +828,7 @@ body.page-contact .page-indicator .dot.active {
 
     // Keyboard
     window.addEventListener('keydown', e => {
+        if (document.getElementById('lightbox').classList.contains('open')) return;
         if (e.key === 'ArrowLeft')  setPage(current - 1);
         if (e.key === 'ArrowRight') setPage(current + 1);
     });
@@ -909,7 +842,7 @@ body.page-contact .page-indicator .dot.active {
     /* ----- Pointer drag (mouse + touch) ----- */
     function onPointerDown(e) {
         // Ignore drags that start on interactive elements
-        if (e.target.closest('a, button, iframe')) return;
+        if (e.target.closest('a, button, iframe, .lightbox')) return;
         isDragging = true;
         startX    = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
         currentX  = startX;
@@ -955,27 +888,45 @@ body.page-contact .page-indicator .dot.active {
 })();
 
 /* ============================================================
-   PREVENT CARD CLICK DURING DRAG
-   Cards are <a> tags that open YouTube in a new tab.
-   If the user dragged horizontally, suppress the click so the
-   link doesn't fire mid-swipe.
+   LIGHTBOX — open YouTube video on card click
    ============================================================ */
 (function () {
-    document.querySelectorAll('a.card').forEach(card => {
-        let startX = 0, startY = 0, moved = false;
-        card.addEventListener('pointerdown', e => {
-            startX = e.clientX; startY = e.clientY; moved = false;
-        });
-        card.addEventListener('pointermove', e => {
-            if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
-        });
+    const lb       = document.getElementById('lightbox');
+    const iframe   = document.getElementById('lightbox-iframe');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    function open(youtubeId) {
+        if (!youtubeId) return;
+        iframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lb.classList.remove('open');
+        iframe.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', e => {
-            if (moved) { e.preventDefault(); e.stopPropagation(); }
-            // Don't navigate on empty hrefs ("#")
-            const href = card.getAttribute('href');
-            if (href === '#' || !href) e.preventDefault();
+            // Ignore if this click was part of a drag
+            if (card.dataset.dragging === '1') return;
+            const id = card.getAttribute('data-youtube');
+            if (id) open(id);
+        });
+
+        // Mark dragging so click is ignored
+        let dragStartX = 0;
+        card.addEventListener('pointerdown', e => { dragStartX = e.clientX; card.dataset.dragging = '0'; });
+        card.addEventListener('pointermove', e => {
+            if (Math.abs((e.clientX || 0) - dragStartX) > 6) card.dataset.dragging = '1';
         });
     });
+
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
 
 /* ============================================================
@@ -994,114 +945,6 @@ body.page-contact .page-indicator .dot.active {
             if (entry.isIntersecting) {
                 if (!video) {
                     video = document.createElement('video');
-                    video.className = 'loop';
-                    video.src = card.getAttribute('data-loop');
-                    video.muted = true;
-                    video.loop = true;
-                    video.playsInline = true;
-                    video.autoplay = true;
-                    video.addEventListener('playing', () => video.classList.add('ready'));
-                    card.appendChild(video);
-                }
-                video.play().catch(() => {});
-            } else if (video) {
-                video.pause();
-                video.classList.remove('ready');
-            }
-        });
-    }, { threshold: 0.4 });
-
-    cards.forEach(c => io.observe(c));
-})();
-</script>
-
-</body>
-</html>ventDefault();
-    }
-
-    function onPointerMove(e) {
-        if (!isDragging) return;
-        currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
-        const dx = currentX - startX;
-        let offset = -current * pageWidth + dx;
-        const min = -(PAGES - 1) * pageWidth;
-        const max = 0;
-        if (offset > max) offset = max + (offset - max) * 0.25;
-        if (offset < min) offset = min + (offset - min) * 0.25;
-        track.style.transform = `translateX(${offset}px)`;
-    }
-
-    function onPointerUp() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('dragging');
-        const dx = currentX - startX;
-        const dt = Date.now() - startTime;
-        const velocity = Math.abs(dx) / Math.max(dt, 1);
-        const threshold = pageWidth * 0.18;
-        if (dx < -threshold || (dx < -30 && velocity > 0.5)) setPage(current + 1);
-        else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
-        else setPage(current);
-    }
-
-    swiper.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointercancel', onPointerUp);
-
-    setPage(0, false);
-})();
-
-(function () {
-    document.querySelectorAll('a.card').forEach(card => {
-        let startX = 0, startY = 0, moved = false;
-        card.addEventListener('pointerdown', e => {
-            startX = e.clientX; startY = e.clientY; moved = false;
-        });
-        card.addEventListener('pointermove', e => {
-            if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
-        });
-        card.addEventListener('click', e => {
-            if (moved) { e.preventDefault(); e.stopPropagation(); }
-            const href = card.getAttribute('href');
-            if (href === '#' || !href) e.preventDefault();
-        });
-    });
-})();
-
-(function () {
-    const cards = document.querySelectorAll('.card[data-loop]');
-    if (!cards.length || !('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const card = entry.target;
-            let video = card.querySelector('video.loop');
-            if (entry.isIntersecting) {
-                if (!video) {
-                    video = document.createElement('video');
-                    video.className = 'loop';
-                    video.src = card.getAttribute('data-loop');
-                    video.muted = true;
-                    video.loop = true;
-                    video.playsInline = true;
-                    video.autoplay = true;
-                    video.addEventListener('playing', () => video.classList.add('ready'));
-                    card.appendChild(video);
-                }
-                video.play().catch(() => {});
-            } else if (video) {
-                video.pause();
-                video.classList.remove('ready');
-            }
-        });
-    }, { threshold: 0.4 });
-    cards.forEach(c => io.observe(c));
-})();
-</script>
-
-</body>
-</html>
-            video = document.createElement('video');
                     video.className = 'loop';
                     video.src = card.getAttribute('data-loop');
                     video.muted = true;
