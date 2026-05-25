@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CREPOM — Cinematic AI videos</title>
-<meta name="description" content="Cinematic AI videos powered by human-driven narratives.">
 
-<!-- ╔══════════════════════════════════════════════════════════════════╗
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREPOM — Cinematic AI videos</title>
+    <meta name="description" content="Cinematic AI videos powered by human-driven narratives.">
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
      ║  COMO EDITAR ESTE SITE / HOW TO EDIT THIS SITE                  ║
      ║                                                                  ║
      ║  ► PRA TROCAR OS TEXTOS / TO CHANGE TEXTS:                       ║
@@ -48,1000 +49,1105 @@
      ║    Trocar email:    procure "crepomcriativo@gmail.com"           ║
      ╚══════════════════════════════════════════════════════════════════╝ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-/* ============================================================
+    <style>
+        /* ============================================================
    CREPOM — cinematic portfolio
    3 horizontal pages: PORTFOLIO / ABOUT / CONTACT
    Drag, arrows, or top-nav clicks to swipe between pages.
    ============================================================ */
 
-/* ── FONTE DA MARCA (Providence Sans) ──
+        /* ── FONTE DA MARCA (Providence Sans) ──
    O arquivo providence-sans.otf precisa estar na mesma pasta
    que o index.html para a fonte carregar.                       */
-@font-face {
-    font-family: "Providence Sans";
-    src: url("providence-sans.otf") format("opentype");
-    font-display: swap;
-}
+        @font-face {
+            font-family: "Providence Sans";
+            src: url("providence-sans.otf") format("opentype");
+            font-display: swap;
+        }
 
-:root {
-    --bg:        #000000;
-    --text:      #ffffff;
-    --text-dim:  rgba(255,255,255,0.55);
-    --text-faint:rgba(255,255,255,0.35);
-    --border:    rgba(255,255,255,0.08);
-    --gap:       8px;       /* gap between video cards */
-    --nav-h:     72px;
-    --ease:      cubic-bezier(0.65, 0, 0.35, 1);
-}
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.55);
+            --text-faint: rgba(255, 255, 255, 0.35);
+            --border: rgba(255, 255, 255, 0.08);
+            --gap: 8px;
+            /* gap between video cards */
+            --nav-h: 72px;
+            --ease: cubic-bezier(0.65, 0, 0.35, 1);
+        }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-    height: 100%;
-    width: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 400;
-    overflow: hidden;            /* container handles scroll */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-a { color: inherit; text-decoration: none; }
-img, video { display: block; max-width: 100%; }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            overflow: hidden;
+            /* container handles scroll */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overscroll-behavior: none;
+        }
 
-/* ============================================================
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        video {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ============================================================
    TOP NAVIGATION (fixed)
    ============================================================ */
-nav.top {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--nav-h);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 100;
-    pointer-events: none;        /* let drags pass through empty areas */
-}
-nav.top > * { pointer-events: auto; }
+        nav.top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+            pointer-events: none;
+            /* let drags pass through empty areas */
+        }
 
-.logo {
-    font-family: "Providence Sans", 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 0.22em;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-}
+        nav.top>* {
+            pointer-events: auto;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 36px;
-}
+        .logo {
+            font-family: "Providence Sans", 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 0.22em;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
 
-.nav-link {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: color 0.25s var(--ease);
-    user-select: none;
-    background: none;
-    border: none;
-    font-family: inherit;
-    padding: 0;
-}
-.nav-link:hover { color: #fff; }
-.nav-link.active { color: #fff; }
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
 
-/* ============================================================
+        .nav-link {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: color 0.25s var(--ease);
+            user-select: none;
+            background: none;
+            border: none;
+            font-family: inherit;
+            padding: 0;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .nav-link.active {
+            color: #fff;
+        }
+
+        /* ============================================================
    HORIZONTAL PAGE SWIPER
    ============================================================ */
-.swiper {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    touch-action: pan-y;         /* allow vertical scroll, capture horizontal */
-}
+        .swiper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            touch-action: pan-y;
+            /* allow vertical scroll, capture horizontal */
+        }
 
-.swiper-track {
-    display: flex;
-    width: 300vw;                 /* 3 pages */
-    height: 100%;
-    /* ── VELOCIDADE DA PASSAGEM ENTRE PÁGINAS ──
+        .swiper-track {
+            display: flex;
+            width: 300vw;
+            /* 3 pages */
+            height: 100%;
+            /* ── VELOCIDADE DA PASSAGEM ENTRE PÁGINAS ──
        Aumente o tempo para passar mais devagar (ex: 1.5s, 2s).
        Diminua para passar mais rápido (ex: 0.5s). */
-    transition: transform 1.2s var(--ease);
-    will-change: transform;
-}
+            transition: transform 1.2s var(--ease);
+            will-change: transform;
+        }
 
-.swiper-track.dragging {
-    transition: none;
-}
+        .swiper-track.dragging {
+            transition: none;
+        }
 
-.page {
-    width: 100vw;
-    height: 100vh;
-    flex-shrink: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-}
+        .page {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
 
-/* hide scrollbars but keep scrolling */
-.page::-webkit-scrollbar { width: 0; height: 0; }
-.page { scrollbar-width: none; }
+        /* hide scrollbars but keep scrolling */
+        .page::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
 
-/* ============================================================
+        .page {
+            scrollbar-width: none;
+        }
+
+        /* ============================================================
    PAGE 1 — PORTFOLIO FEED
    Hero (full bleed) + alternating 1col / 2col rows.
    Rows are sized so the next row is partially visible: gives
    the "infinite feed, always see another below" effect.
    ============================================================ */
-.feed {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    padding-bottom: 80px;
-    background: #000;
-}
+        .feed {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            padding-bottom: 80px;
+            background: #000;
+        }
 
-/* Hero is taller than viewport area below the nav, but sized so
+        /* Hero is taller than viewport area below the nav, but sized so
    the next row peeks in to invite scrolling. */
-.feed-row {
-    width: 100%;
-    display: flex;
-    gap: var(--gap);
-}
+        .feed-row {
+            width: 100%;
+            display: flex;
+            gap: var(--gap);
+        }
 
-.feed-row.full { }                /* single full-width card */
-.feed-row.split { }               /* two cards side-by-side */
+        .feed-row.full {}
 
-/* A "card" is a video tile. */
-.card {
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-    cursor: pointer;
-    background: #0a0a0a;
-}
+        /* single full-width card */
+        .feed-row.split {}
 
-/* Hero card sizing — fills the viewport minus a peek for the row below */
-.card.hero {
-    height: calc(100vh - 110px);  /* leaves room for next row to peek */
-    min-height: 520px;
-}
+        /* two cards side-by-side */
 
-/* Split rows: ~75vh each, so the next row peeks too */
-.feed-row.split .card {
-    height: 75vh;
-    min-height: 460px;
-}
+        /* A "card" is a video tile. */
+        .card {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            cursor: pointer;
+            background: #0a0a0a;
+        }
 
-/* Full rows after the hero: ~85vh so peek continues */
-.feed-row.full:not(:first-child) .card {
-    height: 85vh;
-    min-height: 480px;
-}
+        /* Hero card sizing — fills the viewport minus a peek for the row below */
+        .card.hero {
+            height: calc(100vh - 110px);
+            /* leaves room for next row to peek */
+            min-height: 520px;
+        }
 
-/* Ken-burns ambient zoom — gives static thumbnails subtle motion */
-@keyframes kenburns {
-    0%   { transform: scale(1.0) translate(0, 0); }
-    50%  { transform: scale(1.08) translate(-1%, -0.6%); }
-    100% { transform: scale(1.0) translate(0, 0); }
-}
+        /* Split rows: ~75vh each, so the next row peeks too */
+        .feed-row.split .card {
+            height: 75vh;
+            min-height: 460px;
+        }
 
-.card .thumb {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: kenburns 22s ease-in-out infinite;
-    transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
-    z-index: 1;
-}
+        /* Full rows after the hero: ~85vh so peek continues */
+        .feed-row.full:not(:first-child) .card {
+            height: 85vh;
+            min-height: 480px;
+        }
 
-/* Optional loop video layer (added on intersection if data-loop set) */
-.card video.loop {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.6s var(--ease);
-    pointer-events: none;
-}
-.card video.loop.ready { opacity: 1; }
+        /* Ken-burns ambient zoom — gives static thumbnails subtle motion */
+        @keyframes kenburns {
+            0% {
+                transform: scale(1.0) translate(0, 0);
+            }
 
-/* Dark gradient overlay so text reads */
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.25) 0%,
-        rgba(0,0,0,0)   30%,
-        rgba(0,0,0,0)   55%,
-        rgba(0,0,0,0.65) 100%
-    );
-    pointer-events: none;
-}
+            50% {
+                transform: scale(1.08) translate(-1%, -0.6%);
+            }
 
-.card:hover .thumb { transform: scale(1.04); animation-play-state: paused; }
+            100% {
+                transform: scale(1.0) translate(0, 0);
+            }
+        }
 
-/* Caption bottom-left */
-.card-caption {
-    position: absolute;
-    left: 28px;
-    bottom: 24px;
-    z-index: 4;
-    color: #fff;
-    pointer-events: none;
-}
-.card-brand {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    opacity: 0.85;
-    margin-bottom: 4px;
-}
-.card-title {
-    font-size: 15px;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    max-width: 520px;
-    line-height: 1.35;
-    opacity: 0.95;
-}
+        .card .thumb {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenburns 22s ease-in-out infinite;
+            transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
+            z-index: 1;
+        }
 
-/* Hero card has its own centered title block */
-.hero-text {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    pointer-events: none;
-}
-.hero-text h1 {
-    font-size: clamp(36px, 5.5vw, 72px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: 18px;
-    color: #fff;
-}
-.hero-text p {
-    font-size: clamp(15px, 1.3vw, 19px);
-    font-weight: 300;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: 0.01em;
-}
+        /* Optional loop video layer (added on intersection if data-loop set) */
+        .card video.loop {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s var(--ease);
+            pointer-events: none;
+        }
 
-/* Play icon (faint, appears on hover) */
-.play-icon {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0.85);
-    z-index: 4;
-    width: 64px; height: 64px;
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-    pointer-events: none;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-.play-icon svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+        .card video.loop.ready {
+            opacity: 1;
+        }
 
-.card:not(.hero):hover .play-icon {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
+        /* Dark gradient overlay so text reads */
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.25) 0%,
+                    rgba(0, 0, 0, 0) 30%,
+                    rgba(0, 0, 0, 0) 55%,
+                    rgba(0, 0, 0, 0.65) 100%);
+            pointer-events: none;
+        }
 
-/* ============================================================
+        .card:hover .thumb {
+            transform: scale(1.04);
+            animation-play-state: paused;
+        }
+
+        /* Caption bottom-left */
+        .card-caption {
+            position: absolute;
+            left: 28px;
+            bottom: 24px;
+            z-index: 4;
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .card-brand {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            opacity: 0.85;
+            margin-bottom: 4px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            max-width: 520px;
+            line-height: 1.35;
+            opacity: 0.95;
+        }
+
+        /* Hero card has its own centered title block */
+        .hero-text {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            pointer-events: none;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(36px, 5.5vw, 72px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+
+        .hero-text p {
+            font-size: clamp(15px, 1.3vw, 19px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.01em;
+        }
+
+        /* Play icon (faint, appears on hover) */
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            z-index: 4;
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .play-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            margin-left: 3px;
+        }
+
+        .card:not(.hero):hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* ============================================================
    PAGE 2 — ABOUT
    ============================================================ */
-.about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 8vw;
-    background: #000;
-}
+        .about {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 8vw;
+            background: #000;
+        }
 
-.about-inner {
-    max-width: 880px;
-    width: 100%;
-}
+        .about-inner {
+            max-width: 880px;
+            width: 100%;
+        }
 
-.about-label {
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    color: var(--text-faint);
-    text-transform: uppercase;
-    margin-bottom: 32px;
-}
+        .about-label {
+            font-size: 12px;
+            letter-spacing: 0.32em;
+            color: var(--text-faint);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
 
-.about-title {
-    font-size: clamp(32px, 4.4vw, 56px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 36px;
-    color: #fff;
-}
+        .about-title {
+            font-size: clamp(32px, 4.4vw, 56px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 36px;
+            color: #fff;
+        }
 
-.about-body {
-    font-size: clamp(16px, 1.2vw, 19px);
-    font-weight: 300;
-    line-height: 1.65;
-    color: var(--text-dim);
-    max-width: 680px;
-}
+        .about-body {
+            font-size: clamp(16px, 1.2vw, 19px);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-dim);
+            max-width: 680px;
+        }
 
-.about-body p + p { margin-top: 18px; }
+        .about-body p+p {
+            margin-top: 18px;
+        }
 
-.about-meta {
-    margin-top: 64px;
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--border);
-    padding-top: 36px;
-}
-.about-meta-item .key {
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 8px;
-}
-.about-meta-item .val {
-    font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-}
+        .about-meta {
+            margin-top: 64px;
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border);
+            padding-top: 36px;
+        }
 
-/* ============================================================
+        .about-meta-item .key {
+            font-size: 11px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 8px;
+        }
+
+        .about-meta-item .val {
+            font-size: 15px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        /* ============================================================
    PAGE 3 — CONTACT  (white background, dark text)
    ============================================================ */
-.contact {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 8vw;
-    background: #ffffff;
-    color: #000000;
-    text-align: center;
-}
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 8vw;
+            background: #ffffff;
+            color: #000000;
+            text-align: center;
+        }
 
-.contact-inner {
-    max-width: 720px;
-}
+        .contact-inner {
+            max-width: 720px;
+        }
 
-.contact-label {
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    color: rgba(0,0,0,0.45);
-    text-transform: uppercase;
-    margin-bottom: 32px;
-}
+        .contact-label {
+            font-size: 12px;
+            letter-spacing: 0.32em;
+            color: rgba(0, 0, 0, 0.45);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
 
-.contact-title {
-    font-size: clamp(32px, 4.4vw, 56px);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 28px;
-    color: #000;
-}
+        .contact-title {
+            font-size: clamp(32px, 4.4vw, 56px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            color: #000;
+        }
 
-.contact-sub {
-    font-size: clamp(15px, 1.2vw, 18px);
-    color: rgba(0,0,0,0.6);
-    font-weight: 300;
-    line-height: 1.6;
-    margin-bottom: 56px;
-}
+        .contact-sub {
+            font-size: clamp(15px, 1.2vw, 18px);
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 56px;
+        }
 
-.contact-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-items: center;
-}
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
 
-.contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 400;
-    color: #000;
-    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
-    cursor: pointer;
-    min-width: 280px;
-    justify-content: center;
-    text-decoration: none;
-}
-.contact-btn:hover {
-    border-color: #000;
-    background: rgba(0,0,0,0.04);
-}
-.contact-btn.primary {
-    background: #000;
-    color: #fff;
-    border-color: #000;
-}
-.contact-btn.primary:hover {
-    background: rgba(0,0,0,0.85);
-}
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 400;
+            color: #000;
+            transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+            cursor: pointer;
+            min-width: 280px;
+            justify-content: center;
+            text-decoration: none;
+        }
 
-/* When contact page is active, make nav links readable on white */
-body.page-contact nav.top .logo,
-body.page-contact nav.top .nav-link {
-    color: rgba(0,0,0,0.55);
-}
-body.page-contact nav.top .nav-link:hover,
-body.page-contact nav.top .nav-link.active,
-body.page-contact nav.top .logo {
-    color: #000;
-}
-body.page-contact .page-indicator .dot {
-    background: rgba(0,0,0,0.25);
-}
-body.page-contact .page-indicator .dot.active {
-    background: #000;
-}
+        .contact-btn:hover {
+            border-color: #000;
+            background: rgba(0, 0, 0, 0.04);
+        }
 
-/* ============================================================
+        .contact-btn.primary {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .contact-btn.primary:hover {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        /* When contact page is active, make nav links readable on white */
+        body.page-contact nav.top .logo,
+        body.page-contact nav.top .nav-link {
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        body.page-contact nav.top .nav-link:hover,
+        body.page-contact nav.top .nav-link.active,
+        body.page-contact nav.top .logo {
+            color: #000;
+        }
+
+        body.page-contact .page-indicator .dot {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        body.page-contact .page-indicator .dot.active {
+            background: #000;
+        }
+
+        /* ============================================================
    PAGE INDICATOR (bottom dots)
    ============================================================ */
-.page-indicator {
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 100;
-}
-.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-    cursor: pointer;
-    transition: background 0.25s var(--ease), width 0.25s var(--ease);
-}
-.dot.active {
-    background: #fff;
-    width: 22px;
-    border-radius: 4px;
-}
+        .page-indicator {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
 
-/* ============================================================
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: background 0.25s var(--ease), width 0.25s var(--ease);
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 22px;
+            border-radius: 4px;
+        }
+
+        /* ============================================================
    LIGHTBOX (full video play)
    ============================================================ */
-.lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(0,0,0,0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s var(--ease);
-}
-.lightbox.open {
-    opacity: 1;
-    pointer-events: auto;
-}
-.lightbox-inner {
-    position: relative;
-    width: 100%;
-    max-width: 1280px;
-    aspect-ratio: 16/9;
-}
-.lightbox-inner iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    background: #000;
-}
-.lightbox-close {
-    position: absolute;
-    top: -44px;
-    right: 0;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: border-color 0.25s var(--ease);
-}
-.lightbox-close:hover { border-color: #fff; }
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s var(--ease);
+        }
 
-/* ============================================================
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-inner {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16/9;
+        }
+
+        .lightbox-inner iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #000;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -44px;
+            right: 0;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: border-color 0.25s var(--ease);
+        }
+
+        .lightbox-close:hover {
+            border-color: #fff;
+        }
+
+        /* ============================================================
    RESPONSIVE — phones
    ============================================================ */
-@media (max-width: 768px) {
-    nav.top { padding: 0 20px; height: 60px; }
-    .logo { font-size: 14px; }
-    .nav-links { gap: 22px; }
-    .nav-link { font-size: 13px; }
+        @media (max-width: 768px) {
+            nav.top {
+                padding: 0 20px;
+                height: 60px;
+            }
 
-    /* On mobile, split rows stack vertically — still gives "always see another" */
-    .feed-row.split { flex-direction: column; }
-    .feed-row.split .card { height: 60vh; min-height: 360px; }
-    .card.hero { height: calc(100vh - 90px); min-height: 480px; }
-    .feed-row.full:not(:first-child) .card { height: 70vh; min-height: 380px; }
+            .logo {
+                font-size: 14px;
+            }
 
-    .card-caption { left: 18px; bottom: 18px; }
-    .about, .contact { padding: 100px 24px; }
-    .about-meta { gap: 32px; }
-}
-</style>
+            .nav-links {
+                gap: 22px;
+            }
+
+            .nav-link {
+                font-size: 13px;
+            }
+
+            /* On mobile, split rows stack vertically — still gives "always see another" */
+            .feed-row.split {
+                flex-direction: column;
+            }
+
+            .feed-row.split .card {
+                height: 60vh;
+                min-height: 360px;
+            }
+
+            .card.hero {
+                height: calc(100vh - 90px);
+                min-height: 480px;
+            }
+
+            .feed-row.full:not(:first-child) .card {
+                height: 70vh;
+                min-height: 380px;
+            }
+
+            .card-caption {
+                left: 18px;
+                bottom: 18px;
+            }
+
+            .about,
+            .contact {
+                padding: 100px 24px;
+            }
+
+            .about-meta {
+                gap: 32px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ╔═══════════════════════════════════════╗
+    <!-- ╔═══════════════════════════════════════╗
      ║  TOP NAV                              ║
      ╚═══════════════════════════════════════╝ -->
-<nav class="top">
-    <div class="logo" data-goto="0">CREPOM</div>
-    <div class="nav-links">
-        <button class="nav-link active" data-goto="0">portfolio</button>
-        <button class="nav-link" data-goto="1">about</button>
-        <button class="nav-link" data-goto="2">contact</button>
-    </div>
-</nav>
+    <nav class="top">
+        <div class="logo" data-goto="0">CREPOM</div>
+        <div class="nav-links">
+            <button class="nav-link active" data-goto="0">portfolio</button>
+            <button class="nav-link" data-goto="1">about</button>
+            <button class="nav-link" data-goto="2">contact</button>
+        </div>
+    </nav>
 
-<!-- ╔═══════════════════════════════════════╗
+    <!-- ╔═══════════════════════════════════════╗
      ║  SWIPER — 3 PAGES                     ║
      ╚═══════════════════════════════════════╝ -->
-<div class="swiper" id="swiper">
-    <div class="swiper-track" id="track">
+    <div class="swiper" id="swiper">
+        <div class="swiper-track" id="track">
 
-        <!-- ============ PAGE 1 — PORTFOLIO ============ -->
-        <section class="page" id="page-portfolio">
-            <div class="feed">
+            <!-- ============ PAGE 1 — PORTFOLIO ============ -->
+            <section class="page" id="page-portfolio">
+                <div class="feed">
 
-                <!-- ──────────────────────────────────────────────────────────
+                    <!-- ──────────────────────────────────────────────────────────
                      VIDEO FEED — adicione/remova/reordene linhas aqui.
                      Cada <div class="feed-row full | split"> é uma linha.
                      Cada <a class="card"> é um vídeo.
                      ────────────────────────────────────────────────────────── -->
 
-                <!-- HERO CARD (full bleed, not a link — just the headline) -->
-                <div class="feed-row full">
-                    <div class="card hero">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
-                             alt="">
-                        <div class="hero-text">
-                            <h1>Cinematic AI videos</h1>
-                            <p>Powered by human-driven narratives</p>
+                    <!-- HERO CARD (full bleed, not a link — just the headline) -->
+                    <div class="feed-row full">
+                        <div class="card hero">
+                            <img class="thumb" src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg" alt="">
+                            <div class="hero-text">
+                                <h1>Cinematic AI videos</h1>
+                                <p>Powered by human-driven narratives</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ROW: Jestor + Kiip -->
-                <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/luKI78u3PLU"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
-                             alt="Jestor — Introducing Jester">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Jestor</div>
-                            <div class="card-title">Introducing Jester: AI for Work</div>
-                        </div>
-                    </a>
-                    <a class="card"
-                       href="#"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1600&q=80"
-                             alt="Kiip — Sua próxima versão">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Kiip</div>
-                            <div class="card-title">Sua próxima versão já está do outro lado</div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- ROW: Grandma (full) -->
-                <div class="feed-row full">
-                    <a class="card"
-                       href="#"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=2400&q=80"
-                             alt="Do you know what your Grandma is doing right now?">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-title">Do you know what your Grandma is doing right now?</div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- ROW: Jestor ERP + Garden of Eden -->
-                <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/lXqExscXvyc"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/lXqExscXvyc/maxresdefault.jpg"
-                             alt="Jestor — Your ERP is NOT the problem">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Jestor</div>
-                            <div class="card-title">Your ERP is NOT the problem.</div>
-                        </div>
-                    </a>
-                    <a class="card"
-                       href="https://youtu.be/kK9ppOWhnh4"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/kK9ppOWhnh4/maxresdefault.jpg"
-                             alt="What if there was AI in the Garden of Eden?">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-title">What if there was AI in the Garden of Eden?</div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- ROW: WhatsApp + Patagonia -->
-                <div class="feed-row split">
-                    <a class="card"
-                       href="https://youtu.be/xRk4rb_wAjU"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/xRk4rb_wAjU/maxresdefault.jpg"
-                             alt="Jestor — WhatsApp vs You">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Jestor</div>
-                            <div class="card-title">WhatsApp vs You</div>
-                        </div>
-                    </a>
-                    <a class="card"
-                       href="https://youtu.be/7g5Wuijom_o"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/7g5Wuijom_o/maxresdefault.jpg"
-                             alt="Patagonia — Be seen">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Patagonia</div>
-                            <div class="card-title">Be seen.</div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- ROW: Choose the COO (full) -->
-                <div class="feed-row full">
-                    <a class="card"
-                       href="https://youtu.be/tLa9z42Nw8A"
-                       target="_blank" rel="noopener">
-                        <img class="thumb"
-                             src="https://img.youtube.com/vi/tLa9z42Nw8A/maxresdefault.jpg"
-                             alt="Jestor — Choose the COO">
-                        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                        <div class="card-caption">
-                            <div class="card-brand">Jestor</div>
-                            <div class="card-title">Choose the COO you want to be.</div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- ▼ COPIE UM BLOCO ACIMA E COLE AQUI PARA ADICIONAR MAIS VÍDEOS ▼ -->
-                <!-- ▼ COPY ANY BLOCK ABOVE AND PASTE HERE TO ADD MORE VIDEOS ▼ -->
-
-            </div>
-        </section>
-
-        <!-- ============ PAGE 2 — ABOUT ============ -->
-        <section class="page" id="page-about">
-            <div class="about">
-                <div class="about-inner">
-                    <div class="about-label">About</div>
-                    <h2 class="about-title">
-                        A creative studio led by an architect who understands product, narrative, and AI.
-                    </h2>
-                    <div class="about-body">
-                        <p>
-                            We make cinematic videos for brands that refuse to be forgotten.
-                            We pair storytelling with AI to produce films that move people —
-                            unforgettable work, at the speed the world now demands.
-                        </p>
-                        <p>
-                            Our strategies have generated millions of organic views.
-                            We work small, move fast, and care about the frame.
-                        </p>
-                    </div>
-                    <div class="about-meta">
-                        <div class="about-meta-item">
-                            <div class="key">Based</div>
-                            <div class="val">Curitiba · Brazil</div>
-                        </div>
-                        <div class="about-meta-item">
-                            <div class="key">Clients</div>
-                            <div class="val">Jestor · Kiip · Patagonia</div>
-                        </div>
-                        <div class="about-meta-item">
-                            <div class="key">Founded</div>
-                            <div class="val">2024</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ PAGE 3 — CONTACT ============ -->
-        <section class="page" id="page-contact">
-            <div class="contact">
-                <div class="contact-inner">
-                    <div class="contact-label">Contact</div>
-                    <h2 class="contact-title">
-                        Ready to make your brand unforgettable?
-                    </h2>
-                    <p class="contact-sub">
-                        Tell us what you need — we'll turn it into a film.
-                    </p>
-                    <div class="contact-actions">
-                        <a class="contact-btn primary"
-                           href="https://wa.me/554195527389?text=Hello!%20I%27d%20like%20a%20quote%20for%20an%20AI%20video."
-                           target="_blank" rel="noopener">
-                            WhatsApp →
+                    <!-- ROW: Jestor + Kiip -->
+                    <div class="feed-row split">
+                        <a class="card" href="https://youtu.be/luKI78u3PLU" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
+                                alt="Jestor — Introducing Jester">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Jestor</div>
+                                <div class="card-title">Introducing Jester: AI for Work</div>
+                            </div>
                         </a>
-                        <a class="contact-btn" href="mailto:crepomcriativo@gmail.com">
-                            crepomcriativo@gmail.com
+                        <a class="card" href="#" target="_blank" rel="noopener">
+                            <img class="thumb"
+                                src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1600&q=80"
+                                alt="Kiip — Sua próxima versão">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Kiip</div>
+                                <div class="card-title">Sua próxima versão já está do outro lado</div>
+                            </div>
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
 
+                    <!-- ROW: Grandma (full) -->
+                    <div class="feed-row full">
+                        <a class="card" href="#" target="_blank" rel="noopener">
+                            <img class="thumb"
+                                src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=2400&q=80"
+                                alt="Do you know what your Grandma is doing right now?">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-title">Do you know what your Grandma is doing right now?</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- ROW: Jestor ERP + Garden of Eden -->
+                    <div class="feed-row split">
+                        <a class="card" href="https://youtu.be/lXqExscXvyc" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/lXqExscXvyc/maxresdefault.jpg"
+                                alt="Jestor — Your ERP is NOT the problem">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Jestor</div>
+                                <div class="card-title">Your ERP is NOT the problem.</div>
+                            </div>
+                        </a>
+                        <a class="card" href="https://youtu.be/kK9ppOWhnh4" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/kK9ppOWhnh4/maxresdefault.jpg"
+                                alt="What if there was AI in the Garden of Eden?">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-title">What if there was AI in the Garden of Eden?</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- ROW: WhatsApp + Patagonia -->
+                    <div class="feed-row split">
+                        <a class="card" href="https://youtu.be/xRk4rb_wAjU" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/xRk4rb_wAjU/maxresdefault.jpg"
+                                alt="Jestor — WhatsApp vs You">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Jestor</div>
+                                <div class="card-title">WhatsApp vs You</div>
+                            </div>
+                        </a>
+                        <a class="card" href="https://youtu.be/7g5Wuijom_o" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/7g5Wuijom_o/maxresdefault.jpg"
+                                alt="Patagonia — Be seen">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Patagonia</div>
+                                <div class="card-title">Be seen.</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- ROW: Choose the COO (full) -->
+                    <div class="feed-row full">
+                        <a class="card" href="https://youtu.be/tLa9z42Nw8A" target="_blank" rel="noopener">
+                            <img class="thumb" src="https://img.youtube.com/vi/tLa9z42Nw8A/maxresdefault.jpg"
+                                alt="Jestor — Choose the COO">
+                            <div class="play-icon"><svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                            <div class="card-caption">
+                                <div class="card-brand">Jestor</div>
+                                <div class="card-title">Choose the COO you want to be.</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- ▼ COPIE UM BLOCO ACIMA E COLE AQUI PARA ADICIONAR MAIS VÍDEOS ▼ -->
+                    <!-- ▼ COPY ANY BLOCK ABOVE AND PASTE HERE TO ADD MORE VIDEOS ▼ -->
+
+                </div>
+            </section>
+
+            <!-- ============ PAGE 2 — ABOUT ============ -->
+            <section class="page" id="page-about">
+                <div class="about">
+                    <div class="about-inner">
+                        <div class="about-label">About</div>
+                        <h2 class="about-title">
+                            A creative studio led by an architect who understands product, narrative, and AI.
+                        </h2>
+                        <div class="about-body">
+                            <p>
+                                We make cinematic videos for brands that refuse to be forgotten.
+                                We pair storytelling with AI to produce films that move people —
+                                unforgettable work, at the speed the world now demands.
+                            </p>
+                            <p>
+                                Our strategies have generated millions of organic views.
+                                We work small, move fast, and care about the frame.
+                            </p>
+                        </div>
+                        <div class="about-meta">
+                            <div class="about-meta-item">
+                                <div class="key">Based</div>
+                                <div class="val">Curitiba · Brazil</div>
+                            </div>
+                            <div class="about-meta-item">
+                                <div class="key">Clients</div>
+                                <div class="val">Jestor · Kiip · Patagonia</div>
+                            </div>
+                            <div class="about-meta-item">
+                                <div class="key">Founded</div>
+                                <div class="val">2026</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ PAGE 3 — CONTACT ============ -->
+            <section class="page" id="page-contact">
+                <div class="contact">
+                    <div class="contact-inner">
+                        <div class="contact-label">Contact</div>
+                        <h2 class="contact-title">
+                            Ready to make your brand unforgettable?
+                        </h2>
+                        <p class="contact-sub">
+                            Tell us what you need — we'll turn it into a film.
+                        </p>
+                        <div class="contact-actions">
+                            <a class="contact-btn primary"
+                                href="https://wa.me/554195527389?text=Hello!%20I%27d%20like%20a%20quote%20for%20an%20AI%20video."
+                                target="_blank" rel="noopener">
+                                WhatsApp →
+                            </a>
+                            <a class="contact-btn" href="mailto:crepomcriativo@gmail.com">
+                                crepomcriativo@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </div>
-</div>
 
-<!-- Page indicator -->
-<div class="page-indicator" id="indicator">
-    <div class="dot active" data-goto="0"></div>
-    <div class="dot" data-goto="1"></div>
-    <div class="dot" data-goto="2"></div>
-</div>
+    <!-- Page indicator -->
+    <div class="page-indicator" id="indicator">
+        <div class="dot active" data-goto="0"></div>
+        <div class="dot" data-goto="1"></div>
+        <div class="dot" data-goto="2"></div>
+    </div>
 
-<script>
-/* ============================================================
-   PAGE SWIPER — drag, arrow keys, nav clicks
-   ============================================================ */
-(function () {
-    const PAGES   = 3;
-    const track   = document.getElementById('track');
-    const swiper  = document.getElementById('swiper');
-    const dots    = document.querySelectorAll('#indicator .dot');
-    const links   = document.querySelectorAll('.nav-link');
+    <script>
+        /* ============================================================
+           PAGE SWIPER — drag, arrow keys, nav clicks
+           ============================================================ */
+        (function () {
+            const PAGES = 3;
+            const track = document.getElementById('track');
+            const swiper = document.getElementById('swiper');
+            const dots = document.querySelectorAll('#indicator .dot');
+            const links = document.querySelectorAll('.nav-link');
 
-    let current   = 0;
-    let isDragging = false;
-    let startX    = 0;
-    let currentX  = 0;
-    let startTime = 0;
-    let pageWidth = window.innerWidth;
+            let current = 0;
+            let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
+            let startTime = 0;
+            let pageWidth = window.innerWidth;
 
-    function setPage(i, animate = true) {
-        current = Math.max(0, Math.min(PAGES - 1, i));
-        if (!animate) track.style.transition = 'none';
-        else track.style.transition = '';
-        track.style.transform = `translateX(${-current * pageWidth}px)`;
-        // Sync UI
-        dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
-        links.forEach((l, idx) => l.classList.toggle('active', idx === current));
-        // Add a body class so we can style the nav differently on the white contact page
-        document.body.classList.toggle('page-contact', current === 2);
-        if (!animate) requestAnimationFrame(() => track.style.transition = '');
-    }
-
-    // Nav + dot clicks
-    document.querySelectorAll('[data-goto]').forEach(el => {
-        el.addEventListener('click', e => {
-            const target = parseInt(el.getAttribute('data-goto'), 10);
-            if (!isNaN(target)) setPage(target);
-        });
-    });
-
-    // Keyboard
-    window.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft')  setPage(current - 1);
-        if (e.key === 'ArrowRight') setPage(current + 1);
-    });
-
-    // Window resize
-    window.addEventListener('resize', () => {
-        pageWidth = window.innerWidth;
-        setPage(current, false);
-    });
-
-    /* ----- Pointer drag (mouse + touch) ----- */
-    function onPointerDown(e) {
-        // Ignore drags that start on interactive elements
-        if (e.target.closest('a, button, iframe')) return;
-        isDragging = true;
-        startX    = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
-        currentX  = startX;
-        startTime = Date.now();
-        track.classList.add('dragging');
-        if (e.cancelable && e.pointerType !== 'touch') e.preventDefault();
-    }
-
-    function onPointerMove(e) {
-        if (!isDragging) return;
-        currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
-        const dx = currentX - startX;
-        // Add a little rubberband at edges
-        let offset = -current * pageWidth + dx;
-        const min = -(PAGES - 1) * pageWidth;
-        const max = 0;
-        if (offset > max) offset = max + (offset - max) * 0.25;
-        if (offset < min) offset = min + (offset - min) * 0.25;
-        track.style.transform = `translateX(${offset}px)`;
-    }
-
-    function onPointerUp() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('dragging');
-        const dx = currentX - startX;
-        const dt = Date.now() - startTime;
-        const velocity = Math.abs(dx) / Math.max(dt, 1);
-        const threshold = pageWidth * 0.18;
-        if (dx < -threshold || (dx < -30 && velocity > 0.5)) setPage(current + 1);
-        else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
-        else setPage(current);
-    }
-
-    // Use pointer events for unified mouse/touch
-    swiper.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointercancel', onPointerUp);
-
-    // Init
-    setPage(0, false);
-})();
-
-/* ============================================================
-   PREVENT CARD CLICK DURING DRAG
-   Cards are <a> tags that open YouTube in a new tab.
-   If the user dragged horizontally, suppress the click so the
-   link doesn't fire mid-swipe.
-   ============================================================ */
-(function () {
-    document.querySelectorAll('a.card').forEach(card => {
-        let startX = 0, startY = 0, moved = false;
-        card.addEventListener('pointerdown', e => {
-            startX = e.clientX; startY = e.clientY; moved = false;
-        });
-        card.addEventListener('pointermove', e => {
-            if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
-        });
-        card.addEventListener('click', e => {
-            if (moved) { e.preventDefault(); e.stopPropagation(); }
-            // Don't navigate on empty hrefs ("#")
-            const href = card.getAttribute('href');
-            if (href === '#' || !href) e.preventDefault();
-        });
-    });
-})();
-
-/* ============================================================
-   OPTIONAL: load MP4 loop on intersection (for cards with
-   a data-loop="/path/to/loop.mp4" attribute). Saves bandwidth
-   by only loading + playing visible videos.
-   ============================================================ */
-(function () {
-    const cards = document.querySelectorAll('.card[data-loop]');
-    if (!cards.length || !('IntersectionObserver' in window)) return;
-
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const card = entry.target;
-            let video = card.querySelector('video.loop');
-            if (entry.isIntersecting) {
-                if (!video) {
-                    video = document.createElement('video');
-                    video.className = 'loop';
-                    video.src = card.getAttribute('data-loop');
-                    video.muted = true;
-                    video.loop = true;
-                    video.playsInline = true;
-                    video.autoplay = true;
-                    video.addEventListener('playing', () => video.classList.add('ready'));
-                    card.appendChild(video);
-                }
-                video.play().catch(() => {});
-            } else if (video) {
-                video.pause();
-                video.classList.remove('ready');
+            function setPage(i, animate = true) {
+                current = Math.max(0, Math.min(PAGES - 1, i));
+                if (!animate) track.style.transition = 'none';
+                else track.style.transition = '';
+                track.style.transform = `translateX(${-current * pageWidth}px)`;
+                // Sync UI
+                dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+                links.forEach((l, idx) => l.classList.toggle('active', idx === current));
+                // Add a body class so we can style the nav differently on the white contact page
+                document.body.classList.toggle('page-contact', current === 2);
+                if (!animate) requestAnimationFrame(() => track.style.transition = '');
             }
-        });
-    }, { threshold: 0.4 });
 
-    cards.forEach(c => io.observe(c));
-})();
-</script>
+            // Nav + dot clicks
+            document.querySelectorAll('[data-goto]').forEach(el => {
+                el.addEventListener('click', e => {
+                    const target = parseInt(el.getAttribute('data-goto'), 10);
+                    if (!isNaN(target)) setPage(target);
+                });
+            });
+
+            // Keyboard
+            window.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') setPage(current - 1);
+                if (e.key === 'ArrowRight') setPage(current + 1);
+            });
+
+            // Window resize
+            window.addEventListener('resize', () => {
+                pageWidth = window.innerWidth;
+                setPage(current, false);
+            });
+
+            /* ----- Pointer drag (mouse + touch) ----- */
+            function onPointerDown(e) {
+                // Ignore drags that start on interactive elements
+                if (e.target.closest('a, button, iframe')) return;
+                isDragging = true;
+                startX = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
+                currentX = startX;
+                startTime = Date.now();
+                track.classList.add('dragging');
+                if (e.cancelable && e.pointerType !== 'touch') e.preventDefault();
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
+                const dx = currentX - startX;
+                // Add a little rubberband at edges
+                let offset = -current * pageWidth + dx;
+                const min = -(PAGES - 1) * pageWidth;
+                const max = 0;
+                if (offset > max) offset = max + (offset - max) * 0.25;
+                if (offset < min) offset = min + (offset - min) * 0.25;
+                track.style.transform = `translateX(${offset}px)`;
+            }
+
+            function onPointerUp() {
+                if (!isDragging) return;
+                isDragging = false;
+                track.classList.remove('dragging');
+                const dx = currentX - startX;
+                const dt = Date.now() - startTime;
+                const velocity = Math.abs(dx) / Math.max(dt, 1);
+                const threshold = pageWidth * 0.18;
+                if (dx < -threshold || (dx < -30 && velocity > 0.5)) setPage(current + 1);
+                else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
+                else setPage(current);
+            }
+
+            // Use pointer events for unified mouse/touch
+            swiper.addEventListener('pointerdown', onPointerDown);
+            window.addEventListener('pointermove', onPointerMove);
+            window.addEventListener('pointerup', onPointerUp);
+            window.addEventListener('pointercancel', onPointerUp);
+
+            // Init
+            setPage(0, false);
+        })();
+
+        /* ============================================================
+           PREVENT CARD CLICK DURING DRAG
+           Cards are <a> tags that open YouTube in a new tab.
+           If the user dragged horizontally, suppress the click so the
+           link doesn't fire mid-swipe.
+           ============================================================ */
+        (function () {
+            document.querySelectorAll('a.card').forEach(card => {
+                let startX = 0, startY = 0, moved = false;
+                card.addEventListener('pointerdown', e => {
+                    startX = e.clientX; startY = e.clientY; moved = false;
+                });
+                card.addEventListener('pointermove', e => {
+                    if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
+                });
+                card.addEventListener('click', e => {
+                    if (moved) { e.preventDefault(); e.stopPropagation(); }
+                    // Don't navigate on empty hrefs ("#")
+                    const href = card.getAttribute('href');
+                    if (href === '#' || !href) e.preventDefault();
+                });
+            });
+        })();
+
+        /* ============================================================
+           OPTIONAL: load MP4 loop on intersection (for cards with
+           a data-loop="/path/to/loop.mp4" attribute). Saves bandwidth
+           by only loading + playing visible videos.
+           ============================================================ */
+        (function () {
+            const cards = document.querySelectorAll('.card[data-loop]');
+            if (!cards.length || !('IntersectionObserver' in window)) return;
+
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const card = entry.target;
+                    let video = card.querySelector('video.loop');
+                    if (entry.isIntersecting) {
+                        if (!video) {
+                            video = document.createElement('video');
+                            video.className = 'loop';
+                            video.src = card.getAttribute('data-loop');
+                            video.muted = true;
+                            video.loop = true;
+                            video.playsInline = true;
+                            video.autoplay = true;
+                            video.addEventListener('playing', () => video.classList.add('ready'));
+                            card.appendChild(video);
+                        }
+                        video.play().catch(() => { });
+                    } else if (video) {
+                        video.pause();
+                        video.classList.remove('ready');
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            cards.forEach(c => io.observe(c));
+        })();
+    </script>
 
 </body>
+
 </html>ventDefault();
-    }
+}
 
-    function onPointerMove(e) {
-        if (!isDragging) return;
-        currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
-        const dx = currentX - startX;
-        let offset = -current * pageWidth + dx;
-        const min = -(PAGES - 1) * pageWidth;
-        const max = 0;
-        if (offset > max) offset = max + (offset - max) * 0.25;
-        if (offset < min) offset = min + (offset - min) * 0.25;
-        track.style.transform = `translateX(${offset}px)`;
-    }
-
-    function onPointerUp() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('dragging');
-        const dx = currentX - startX;
-        const dt = Date.now() - startTime;
-        const velocity = Math.abs(dx) / Math.max(dt, 1);
-        const threshold = pageWidth * 0.18;
-        if (dx < -threshold || (dx < -30 && velocity > 0.5)) setPage(current + 1);
-        else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
-        else setPage(current);
+function onPointerMove(e) {
+if (!isDragging) return;
+currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
+const dx = currentX - startX;
+let offset = -current * pageWidth + dx;
+const min = -(PAGES - 1) * pageWidth;
+const max = 0;
+if (offset > max) offset = max + (offset - max) * 0.25;
+if (offset < min) offset=min + (offset - min) * 0.25; track.style.transform=`translateX(${offset}px)`; } function
+    onPointerUp() { if (!isDragging) return; isDragging=false; track.classList.remove('dragging'); const dx=currentX -
+    startX; const dt=Date.now() - startTime; const velocity=Math.abs(dx) / Math.max(dt, 1); const threshold=pageWidth *
+    0.18; if (dx < -threshold || (dx < -30 && velocity> 0.5)) setPage(current + 1);
+    else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
+    else setPage(current);
     }
 
     swiper.addEventListener('pointerdown', onPointerDown);
@@ -1050,78 +1156,80 @@ body.page-contact .page-indicator .dot.active {
     window.addEventListener('pointercancel', onPointerUp);
 
     setPage(0, false);
-})();
+    })();
 
-(function () {
+    (function () {
     document.querySelectorAll('a.card').forEach(card => {
-        let startX = 0, startY = 0, moved = false;
-        card.addEventListener('pointerdown', e => {
-            startX = e.clientX; startY = e.clientY; moved = false;
-        });
-        card.addEventListener('pointermove', e => {
-            if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
-        });
-        card.addEventListener('click', e => {
-            if (moved) { e.preventDefault(); e.stopPropagation(); }
-            const href = card.getAttribute('href');
-            if (href === '#' || !href) e.preventDefault();
-        });
+    let startX = 0, startY = 0, moved = false;
+    card.addEventListener('pointerdown', e => {
+    startX = e.clientX; startY = e.clientY; moved = false;
     });
-})();
+    card.addEventListener('pointermove', e => {
+    if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
+    });
+    card.addEventListener('click', e => {
+    if (moved) { e.preventDefault(); e.stopPropagation(); }
+    const href = card.getAttribute('href');
+    if (href === '#' || !href) e.preventDefault();
+    });
+    });
+    })();
 
-(function () {
+    (function () {
     const cards = document.querySelectorAll('.card[data-loop]');
     if (!cards.length || !('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const card = entry.target;
-            let video = card.querySelector('video.loop');
-            if (entry.isIntersecting) {
-                if (!video) {
-                    video = document.createElement('video');
-                    video.className = 'loop';
-                    video.src = card.getAttribute('data-loop');
-                    video.muted = true;
-                    video.loop = true;
-                    video.playsInline = true;
-                    video.autoplay = true;
-                    video.addEventListener('playing', () => video.classList.add('ready'));
-                    card.appendChild(video);
-                }
-                video.play().catch(() => {});
-            } else if (video) {
-                video.pause();
-                video.classList.remove('ready');
-            }
-        });
+    entries.forEach(entry => {
+    const card = entry.target;
+    let video = card.querySelector('video.loop');
+    if (entry.isIntersecting) {
+    if (!video) {
+    video = document.createElement('video');
+    video.className = 'loop';
+    video.src = card.getAttribute('data-loop');
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.addEventListener('playing', () => video.classList.add('ready'));
+    card.appendChild(video);
+    }
+    video.play().catch(() => {});
+    } else if (video) {
+    video.pause();
+    video.classList.remove('ready');
+    }
+    });
     }, { threshold: 0.4 });
     cards.forEach(c => io.observe(c));
-})();
-</script>
+    })();
+    </script>
 
-</body>
-</html>
-            video = document.createElement('video');
-                    video.className = 'loop';
-                    video.src = card.getAttribute('data-loop');
-                    video.muted = true;
-                    video.loop = true;
-                    video.playsInline = true;
-                    video.autoplay = true;
-                    video.addEventListener('playing', () => video.classList.add('ready'));
-                    card.appendChild(video);
-                }
-                video.play().catch(() => {});
-            } else if (video) {
-                video.pause();
-                video.classList.remove('ready');
-            }
-        });
+    </body>
+
+    </html>
+    video = document.createElement('video');
+    video.className = 'loop';
+    video.src = card.getAttribute('data-loop');
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.addEventListener('playing', () => video.classList.add('ready'));
+    card.appendChild(video);
+    }
+    video.play().catch(() => {});
+    } else if (video) {
+    video.pause();
+    video.classList.remove('ready');
+    }
+    });
     }, { threshold: 0.4 });
 
     cards.forEach(c => io.observe(c));
-})();
-</script>
+    })();
+    </script>
 
-</body>
-</html>
+    </body>
+
+    </html>
