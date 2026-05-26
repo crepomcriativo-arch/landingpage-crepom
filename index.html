@@ -449,6 +449,15 @@
         }
 
         .about-title {
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 36px;
+            color: #fff;
+        }
+
+        .about-title-1 {
             font-size: clamp(32px, 4.4vw, 56px);
             font-weight: 300;
             letter-spacing: -0.02em;
@@ -495,7 +504,7 @@
         /* ============================================================
    PAGE 3 — CONTACT  (white background, dark text)
    ============================================================ */
-        .contact {
+        /*  .contact {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -573,8 +582,8 @@
         .contact-btn.primary:hover {
             background: rgba(0, 0, 0, 0.85);
         }
-
-        /* When contact page is active, make nav links readable on white */
+        
+         * When contact page is active, make nav links readable on white *
         body.page-contact nav.top .logo,
         body.page-contact nav.top .nav-link {
             color: rgba(0, 0, 0, 0.55);
@@ -592,6 +601,119 @@
 
         body.page-contact .page-indicator .dot.active {
             background: #000;
+        }
+
+        #page-contact {
+            position: relative;
+        }
+
+        .contact-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* Garante que o conteúdo fique na frente do vídeo *
+        #page-contact .contact {
+            position: relative;
+            z-index: 1;
+        }
+        */
+        #page-contact {
+            position: relative;
+        }
+
+        .contact-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 8vw;
+            background: rgba(0, 0, 0, 0.55);
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-inner {
+            max-width: 720px;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            letter-spacing: 0.32em;
+            color: rgba(255, 255, 255, 0.55);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .contact-title {
+            font-size: clamp(32px, 4.4vw, 56px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            color: #fff;
+        }
+
+        .contact-sub {
+            font-size: clamp(15px, 1.2vw, 18px);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 56px;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 400;
+            color: #fff;
+            transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+            cursor: pointer;
+            min-width: 280px;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-btn.primary {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+        }
+
+        .contact-btn.primary:hover {
+            background: rgba(255, 255, 255, 0.85);
         }
 
         /* ============================================================
@@ -738,6 +860,7 @@
     </style>
 </head>
 
+
 <body>
     <!-- ╔═══════════════════════════════════════╗
      ║  TOP NAV                              ║
@@ -882,32 +1005,31 @@
                 <div class="about">
                     <div class="about-inner">
                         <div class="about-label">About</div>
+                        <h1 class="about-title-1">An AI-first creative studio.</h1>
                         <h2 class="about-title">
-                            A creative studio led by an architect who understands product, narrative, and AI.
+                            We use AI to liberate the craft and build cinematic videos for brands.
                         </h2>
                         <div class="about-body">
                             <p>
-                                We make cinematic videos for brands that refuse to be forgotten.
-                                We pair storytelling with AI to produce films that move people —
-                                unforgettable work, at the speed the world now demands.
-                            </p>
-                            <p>
-                                Our strategies have generated millions of organic views.
+                                Powered by human-driven narratives, we pair high-end aesthetics with digital speed to
+                                produce films that make brands unforgettable.
+                                Founded by a former architect with experience in Startup Marketing Strategy, our work is
+                                backed by a track record of millions of organic views.
                                 We work small, move fast, and care about the frame.
                             </p>
                         </div>
                         <div class="about-meta">
                             <div class="about-meta-item">
                                 <div class="key">Based</div>
-                                <div class="val">Curitiba · Brazil</div>
+                                <div class="val">Brazil</div>
                             </div>
-                            <div class="about-meta-item">
+                            <!--<div class="about-meta-item">
                                 <div class="key">Clients</div>
                                 <div class="val">Jestor · Kiip · Patagonia</div>
-                            </div>
+                            </div>-->
                             <div class="about-meta-item">
                                 <div class="key">Founded</div>
-                                <div class="val">2026</div>
+                                <div class="val">2025</div>
                             </div>
                         </div>
                     </div>
@@ -915,15 +1037,19 @@
             </section>
             <!-- ============ PAGE 3 — CONTACT ============ -->
             <section class="page" id="page-contact">
+                <!-- ADICIONE ISSO: -->
+                <video class="contact-bg-video" autoplay muted loop playsinline>
+                    <source src="videos/video-contact-2.mp4" type="video/mp4">
+                </video>
                 <div class="contact">
                     <div class="contact-inner">
                         <div class="contact-label">Contact</div>
                         <h2 class="contact-title">
-                            Ready to make your brand unforgettable?
+                            Tell us what you need, We’ll turn into a film.
                         </h2>
-                        <p class="contact-sub">
+                        <!--<p class="contact-sub">
                             Tell us what you need — we'll turn it into a film.
-                        </p>
+                        </p>-->
                         <div class="contact-actions">
                             <a class="contact-btn primary"
                                 href="https://wa.me/554195527389?text=Hello!%20I%27d%20like%20a%20quote%20for%20an%20AI%20video."
