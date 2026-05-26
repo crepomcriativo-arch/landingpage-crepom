@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREPOM — Cinematic AI videos</title>
     <meta name="description" content="Cinematic AI videos powered by human-driven narratives.">
-
     <!-- ╔══════════════════════════════════════════════════════════════════╗
      ║  COMO EDITAR ESTE SITE / HOW TO EDIT THIS SITE                  ║
      ║                                                                  ║
@@ -48,18 +47,15 @@
      ║    Trocar WhatsApp: procure "554195527389"                       ║
      ║    Trocar email:    procure "crepomcriativo@gmail.com"           ║
      ╚══════════════════════════════════════════════════════════════════╝ -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         /* ============================================================
    CREPOM — cinematic portfolio
    3 horizontal pages: PORTFOLIO / ABOUT / CONTACT
    Drag, arrows, or top-nav clicks to swipe between pages.
    ============================================================ */
-
         /* ── FONTE DA MARCA (Providence Sans) ──
    O arquivo providence-sans.otf precisa estar na mesma pasta
    que o index.html para a fonte carregar.                       */
@@ -80,6 +76,7 @@
             --nav-h: 72px;
             --ease: cubic-bezier(0.65, 0, 0.35, 1);
         }
+
 
         * {
             margin: 0;
@@ -246,7 +243,6 @@
         .feed-row.split {}
 
         /* two cards side-by-side */
-
         /* A "card" is a video tile. */
         .card {
             position: relative;
@@ -743,7 +739,6 @@
 </head>
 
 <body>
-
     <!-- ╔═══════════════════════════════════════╗
      ║  TOP NAV                              ║
      ╚═══════════════════════════════════════╝ -->
@@ -755,39 +750,32 @@
             <button class="nav-link" data-goto="2">contact</button>
         </div>
     </nav>
-
     <!-- ╔═══════════════════════════════════════╗
      ║  SWIPER — 3 PAGES                     ║
      ╚═══════════════════════════════════════╝ -->
     <div class="swiper" id="swiper">
         <div class="swiper-track" id="track">
-
             <!-- ============ PAGE 1 — PORTFOLIO ============ -->
             <section class="page" id="page-portfolio">
                 <div class="feed">
-
                     <!-- ──────────────────────────────────────────────────────────
                      VIDEO FEED — adicione/remova/reordene linhas aqui.
                      Cada <div class="feed-row full | split"> é uma linha.
                      Cada <a class="card"> é um vídeo.
                      ────────────────────────────────────────────────────────── -->
-
                     <!-- HERO CARD (full bleed, not a link — just the headline) -->
                     <div class="feed-row full">
-                        <div class="card hero" data-loop="videos/video-hero.mp4">
-                            <img class="thumb" src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg" alt="">
+                        <div class="card hero" data-loop="videos/video-hero.mp4" href="" target="_blank" rel="noopener">
                             <div class="hero-text">
                                 <h1>Cinematic AI videos</h1>
                                 <p>Powered by human-driven narratives</p>
                             </div>
                         </div>
                     </div>
-
                     <!-- ROW: Jestor + Kiip -->
                     <div class="feed-row split">
-                        <a class="card" href="https://youtu.be/luKI78u3PLU" target="_blank" rel="noopener">
-                            <img class="thumb" src="https://img.youtube.com/vi/luKI78u3PLU/maxresdefault.jpg"
-                                alt="Jestor — Introducing Jester">
+                        <a class="card" href="https://youtu.be/luKI78u3PLU" target="_blank" rel="noopener"
+                            data-loop="videos/video-jestor-ai.mp4">
                             <div class="play-icon"><svg viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
@@ -796,23 +784,21 @@
                                 <div class="card-title">Introducing Jester: AI for Work</div>
                             </div>
                         </a>
-                        <a class="card" href="#" target="_blank" rel="noopener">
-                            <img class="thumb"
-                                src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1600&q=80"
-                                alt="Kiip — Sua próxima versão">
+                        <a class="card" href="#" target="_blank" rel="noopener"
+                            data-loop="videos/video-jestor-tennis.mp4">
                             <div class="play-icon"><svg viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
                             <div class="card-caption">
-                                <div class="card-brand">Kiip</div>
-                                <div class="card-title">Sua próxima versão já está do outro lado</div>
+                                <div class="card-brand">Jestor</div>
+                                <div class="card-title">
+                                    Your ERP is NOT the problem.</div>
                             </div>
                         </a>
                     </div>
-
                     <!-- ROW: Grandma (full) -->
                     <div class="feed-row full">
-                        <a class="card" href="#" target="_blank" rel="noopener">
+                        <a class="card" href="#" target="_blank" rel="noopener" data-loop="videos/video-hero.mp4">
                             <img class="thumb"
                                 src="https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=2400&q=80"
                                 alt="Do you know what your Grandma is doing right now?">
@@ -820,37 +806,33 @@
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
                             <div class="card-caption">
-                                <div class="card-title">Do you know what your Grandma is doing right now?</div>
+                                <div class="card-brand">Kiip</div>
+                                <div class="card-title">Your next version is already on the other side.</div>
                             </div>
                         </a>
                     </div>
-
                     <!-- ROW: Jestor ERP + Garden of Eden -->
                     <div class="feed-row split">
-                        <a class="card" href="https://youtu.be/lXqExscXvyc" target="_blank" rel="noopener">
-                            <img class="thumb" src="https://img.youtube.com/vi/lXqExscXvyc/maxresdefault.jpg"
-                                alt="Jestor — Your ERP is NOT the problem">
+                        <a class="card" href="https://youtu.be/lXqExscXvyc" target="_blank" rel="noopener"
+                            data-loop="videos/video-edem.mp4">
                             <div class="play-icon"><svg viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
                             <div class="card-caption">
-                                <div class="card-brand">Jestor</div>
-                                <div class="card-title">Your ERP is NOT the problem.</div>
+                                <div class="card-title">What if existed AI in the Garden of Eden?</div>
                             </div>
                         </a>
-                        <a class="card" href="https://youtu.be/kK9ppOWhnh4" target="_blank" rel="noopener">
-                            <img class="thumb" src="https://img.youtube.com/vi/kK9ppOWhnh4/maxresdefault.jpg"
-                                alt="What if there was AI in the Garden of Eden?">
+                        <a class="card" href="https://youtu.be/kK9ppOWhnh4" target="_blank" rel="noopener"
+                            data-loop="videos/video-patagonia.mp4">
                             <div class="play-icon"><svg viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
                             <div class="card-caption">
-                                <div class="card-title">What if there was AI in the Garden of Eden?</div>
+                                <div class="card-title">Patagonia Spec Commercial</div>
                             </div>
                         </a>
                     </div>
-
-                    <!-- ROW: WhatsApp + Patagonia -->
+                    <!-- ROW: WhatsApp + Patagonia 
                     <div class="feed-row split">
                         <a class="card" href="https://youtu.be/xRk4rb_wAjU" target="_blank" rel="noopener">
                             <img class="thumb" src="https://img.youtube.com/vi/xRk4rb_wAjU/maxresdefault.jpg"
@@ -875,28 +857,24 @@
                             </div>
                         </a>
                     </div>
-
+                    -->
                     <!-- ROW: Choose the COO (full) -->
                     <div class="feed-row full">
-                        <a class="card" href="https://youtu.be/tLa9z42Nw8A" target="_blank" rel="noopener">
-                            <img class="thumb" src="https://img.youtube.com/vi/tLa9z42Nw8A/maxresdefault.jpg"
-                                alt="Jestor — Choose the COO">
+                        <a class="card" href="https://youtu.be/tLa9z42Nw8A" target="_blank" rel="noopener"
+                            data-loop="videos/video-idosas.mp4">
                             <div class="play-icon"><svg viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg></div>
                             <div class="card-caption">
-                                <div class="card-brand">Jestor</div>
-                                <div class="card-title">Choose the COO you want to be.</div>
+                                <div class="card-brand">Do you know</div>
+                                <div class="card-title">what your Grandma is doing right now?</div>
                             </div>
                         </a>
                     </div>
-
                     <!-- ▼ COPIE UM BLOCO ACIMA E COLE AQUI PARA ADICIONAR MAIS VÍDEOS ▼ -->
                     <!-- ▼ COPY ANY BLOCK ABOVE AND PASTE HERE TO ADD MORE VIDEOS ▼ -->
-
                 </div>
             </section>
-
             <!-- ============ PAGE 2 — ABOUT ============ -->
             <section class="page" id="page-about">
                 <div class="about">
@@ -933,7 +911,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- ============ PAGE 3 — CONTACT ============ -->
             <section class="page" id="page-contact">
                 <div class="contact">
@@ -958,17 +935,14 @@
                     </div>
                 </div>
             </section>
-
         </div>
     </div>
-
     <!-- Page indicator -->
     <div class="page-indicator" id="indicator">
         <div class="dot active" data-goto="0"></div>
         <div class="dot" data-goto="1"></div>
         <div class="dot" data-goto="2"></div>
     </div>
-
     <script>
         /* ============================================================
            PAGE SWIPER — drag, arrow keys, nav clicks
@@ -979,14 +953,12 @@
             const swiper = document.getElementById('swiper');
             const dots = document.querySelectorAll('#indicator .dot');
             const links = document.querySelectorAll('.nav-link');
-
             let current = 0;
             let isDragging = false;
             let startX = 0;
             let currentX = 0;
             let startTime = 0;
             let pageWidth = window.innerWidth;
-
             function setPage(i, animate = true) {
                 current = Math.max(0, Math.min(PAGES - 1, i));
                 if (!animate) track.style.transition = 'none';
@@ -999,7 +971,6 @@
                 document.body.classList.toggle('page-contact', current === 2);
                 if (!animate) requestAnimationFrame(() => track.style.transition = '');
             }
-
             // Nav + dot clicks
             document.querySelectorAll('[data-goto]').forEach(el => {
                 el.addEventListener('click', e => {
@@ -1007,19 +978,16 @@
                     if (!isNaN(target)) setPage(target);
                 });
             });
-
             // Keyboard
             window.addEventListener('keydown', e => {
                 if (e.key === 'ArrowLeft') setPage(current - 1);
                 if (e.key === 'ArrowRight') setPage(current + 1);
             });
-
             // Window resize
             window.addEventListener('resize', () => {
                 pageWidth = window.innerWidth;
                 setPage(current, false);
             });
-
             /* ----- Pointer drag (mouse + touch) ----- */
             function onPointerDown(e) {
                 // Ignore drags that start on interactive elements
@@ -1031,7 +999,6 @@
                 track.classList.add('dragging');
                 if (e.cancelable && e.pointerType !== 'touch') e.preventDefault();
             }
-
             function onPointerMove(e) {
                 if (!isDragging) return;
                 currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
@@ -1044,7 +1011,6 @@
                 if (offset < min) offset = min + (offset - min) * 0.25;
                 track.style.transform = `translateX(${offset}px)`;
             }
-
             function onPointerUp() {
                 if (!isDragging) return;
                 isDragging = false;
@@ -1057,17 +1023,14 @@
                 else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
                 else setPage(current);
             }
-
             // Use pointer events for unified mouse/touch
             swiper.addEventListener('pointerdown', onPointerDown);
             window.addEventListener('pointermove', onPointerMove);
             window.addEventListener('pointerup', onPointerUp);
             window.addEventListener('pointercancel', onPointerUp);
-
             // Init
             setPage(0, false);
         })();
-
         /* ============================================================
            PREVENT CARD CLICK DURING DRAG
            Cards are <a> tags that open YouTube in a new tab.
@@ -1091,16 +1054,16 @@
                 });
             });
         })();
-
         /* ============================================================
-           OPTIONAL: load MP4 loop on intersection (for cards with
-           a data-loop="/path/to/loop.mp4" attribute). Saves bandwidth
-           by only loading + playing visible videos.
+           LOAD MP4 LOOP ON INTERSECTION
+           Os vídeos com data-loop="..." são carregados/tocados sempre
+           que QUALQUER pixel do card está visível na tela (threshold: 0).
+           Só pausam quando saem completamente do viewport.
+           Assim nada congela enquanto ainda aparece pro usuário.
            ============================================================ */
         (function () {
             const cards = document.querySelectorAll('.card[data-loop]');
             if (!cards.length || !('IntersectionObserver' in window)) return;
-
             const io = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const card = entry.target;
@@ -1114,122 +1077,37 @@
                             video.loop = true;
                             video.playsInline = true;
                             video.autoplay = true;
+                            video.preload = 'auto';
                             video.addEventListener('playing', () => video.classList.add('ready'));
                             card.appendChild(video);
                         }
-                        video.play().catch(() => { });
+                        // Garante que sempre que o card é visível (qualquer parte)
+                        // o vídeo está tocando — mesmo após uma pausa anterior.
+                        const tryPlay = () => video.play().catch(() => { });
+                        if (video.paused) tryPlay();
                     } else if (video) {
+                        // Só pausa quando o card sai COMPLETAMENTE da tela.
                         video.pause();
-                        video.classList.remove('ready');
                     }
                 });
-            }, { threshold: 0.4 });
-
+            }, { threshold: 0 });
             cards.forEach(c => io.observe(c));
+
+            /* Segurança extra: se o navegador pausar o vídeo por conta
+               própria (ex: depois de voltar de outra aba ou trocar de
+               página no swiper), retoma assim que o card volta a ficar
+               visível. */
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState !== 'visible') return;
+                document.querySelectorAll('.card video.loop').forEach(v => {
+                    const rect = v.getBoundingClientRect();
+                    const onScreen = rect.bottom > 0 && rect.top < window.innerHeight
+                        && rect.right > 0 && rect.left < window.innerWidth;
+                    if (onScreen && v.paused) v.play().catch(() => { });
+                });
+            });
         })();
     </script>
-
 </body>
 
-</html>ventDefault();
-}
-
-function onPointerMove(e) {
-if (!isDragging) return;
-currentX = e.clientX ?? e.touches?.[0]?.clientX ?? currentX;
-const dx = currentX - startX;
-let offset = -current * pageWidth + dx;
-const min = -(PAGES - 1) * pageWidth;
-const max = 0;
-if (offset > max) offset = max + (offset - max) * 0.25;
-if (offset < min) offset=min + (offset - min) * 0.25; track.style.transform=`translateX(${offset}px)`; } function
-    onPointerUp() { if (!isDragging) return; isDragging=false; track.classList.remove('dragging'); const dx=currentX -
-    startX; const dt=Date.now() - startTime; const velocity=Math.abs(dx) / Math.max(dt, 1); const threshold=pageWidth *
-    0.18; if (dx < -threshold || (dx < -30 && velocity> 0.5)) setPage(current + 1);
-    else if (dx > threshold || (dx > 30 && velocity > 0.5)) setPage(current - 1);
-    else setPage(current);
-    }
-
-    swiper.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', onPointerUp);
-    window.addEventListener('pointercancel', onPointerUp);
-
-    setPage(0, false);
-    })();
-
-    (function () {
-    document.querySelectorAll('a.card').forEach(card => {
-    let startX = 0, startY = 0, moved = false;
-    card.addEventListener('pointerdown', e => {
-    startX = e.clientX; startY = e.clientY; moved = false;
-    });
-    card.addEventListener('pointermove', e => {
-    if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) moved = true;
-    });
-    card.addEventListener('click', e => {
-    if (moved) { e.preventDefault(); e.stopPropagation(); }
-    const href = card.getAttribute('href');
-    if (href === '#' || !href) e.preventDefault();
-    });
-    });
-    })();
-
-    (function () {
-    const cards = document.querySelectorAll('.card[data-loop]');
-    if (!cards.length || !('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-    const card = entry.target;
-    let video = card.querySelector('video.loop');
-    if (entry.isIntersecting) {
-    if (!video) {
-    video = document.createElement('video');
-    video.className = 'loop';
-    video.src = card.getAttribute('data-loop');
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.autoplay = true;
-    video.addEventListener('playing', () => video.classList.add('ready'));
-    card.appendChild(video);
-    }
-    video.play().catch(() => {});
-    } else if (video) {
-    video.pause();
-    video.classList.remove('ready');
-    }
-    });
-    }, { threshold: 0.4 });
-    cards.forEach(c => io.observe(c));
-    })();
-    </script>
-
-    </body>
-
-    </html>
-    video = document.createElement('video');
-    video.className = 'loop';
-    video.src = card.getAttribute('data-loop');
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.autoplay = true;
-    video.addEventListener('playing', () => video.classList.add('ready'));
-    card.appendChild(video);
-    }
-    video.play().catch(() => {});
-    } else if (video) {
-    video.pause();
-    video.classList.remove('ready');
-    }
-    });
-    }, { threshold: 0.4 });
-
-    cards.forEach(c => io.observe(c));
-    })();
-    </script>
-
-    </body>
-
-    </html>
+</html>
